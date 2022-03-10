@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 
-export const fetchTags = () => {
-    return fetch("http://localhost:8000/tags", {
-        method: "GET",
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("token")}`
-        }
-    })
-        .then((res) => res.json())
-       
-}
+
 
 export const deleteTags = (tagId) => {
     return fetch(`http://localhost:8000/tags/${tagId}`, {

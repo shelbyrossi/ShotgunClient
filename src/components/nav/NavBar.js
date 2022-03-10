@@ -37,35 +37,22 @@ export const NavBar = ({ token, setToken }) => {
 				</a>
 			</div>
 
-			{/* <div className='navbar-menu' ref={navbar}>
+			<div className='navbar-menu' ref={navbar}></div>
 				<div className='navbar-start'>
 					{token ? (
 						<>
-							<Link to='/Posts' className='navbar-item'>
-								All Posts
+							<Link to='/CreateScrapbook' className='navbar-item'>
+								Create A Scrapbook!
 							</Link>
-							<Link to='/MyPosts' className='navbar-item'>
-								My Posts
+							<Link to='/MyBooks' className='navbar-item'>
+								Your Books!
 							</Link>
-							<Link to='/createNewPost' className='navbar-item'>
-								Create New Post
-							</Link>
-							<Link
-								to='/categories'
-								className='navbar-item'>
-								Category Manager
-							</Link>
-							<Link to='/tags' className='navbar-item'>
-								Tag Manager
-							</Link>
-							<Link to='/userManagement' className='navbar-item'>
-								User Profiles
-							</Link>
+						
 						</>
 					) : (
 						""
 					)}
-				</div> */}
+				</div>
 
 				<div className='navbar-end'>
 					<div className='navbar-item'>
