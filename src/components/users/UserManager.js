@@ -1,8 +1,3 @@
-export const getThisUser = (token) => {
-	return fetch(`http://localhost:8000/users/${token}`).then((res) =>
-		res.json()
-	)
-}
 
 export const getUsers= () => {
 	return fetch("http://localhost:8000/users", {
@@ -11,7 +6,6 @@ export const getUsers= () => {
 		},
 	}).then((res) => res.json())
 }
-
 export const getUserById = (userId) => {
 	return fetch(`http://localhost:8000/users/${userId}`, {
 		headers: {
@@ -20,3 +14,11 @@ export const getUserById = (userId) => {
 	}).then((res) => res.json())
 }
 
+export const getThisUser = (token) => {
+	return fetch(`http://localhost:8000/users/${token}`, {
+        headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+    
+}

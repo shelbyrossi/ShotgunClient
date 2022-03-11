@@ -3,6 +3,9 @@ import { Route } from "react-router-dom"
 import {ScrapbookForm} from "./scrapbook/CreateNewScrapbook"
 import { ImageForm } from "./images/CreateNewImage"
 import {MyScrapbook} from "./scrapbook/MyScrapbooks"
+import {ImageList} from "./images/ImageList"
+import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
+
 
 export const ApplicationViews = () => {
     return (
@@ -11,7 +14,7 @@ export const ApplicationViews = () => {
                 {/* child */}
                 <ScrapbookForm />
             </Route>
-            <Route exact path='/CreateScrapbook'>
+            <Route exact path='/uploadImages'>
                 {/* child */}
                 <ImageForm />
             </Route>
@@ -19,6 +22,17 @@ export const ApplicationViews = () => {
                 {/* child */}
                 <MyScrapbook />
             </Route>
+       
+            <Route exact path='/scrapbooks/:scrapbookId(\d+)'>
+                {/* child */}
+                <ShowScrapbookDetails/>
+            </Route>
+            <Route exact path='/scrapbooks/:scrapbookId(\d+)'>
+                {/* child */}
+                <ImageList/>
+            </Route>
+           
+
 
         </>
     )

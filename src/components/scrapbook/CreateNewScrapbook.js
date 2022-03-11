@@ -58,13 +58,13 @@ export const ScrapbookForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Name Your Book:</label>
+                    <label htmlFor="title">Name: </label>
                     <input
                         required autoFocus
                         type="text"
                         name="name"
                         className="form-control"
-                        placeholder="Give Your Scrapbook A Name.."
+                        placeholder="give your scrapbook a name.."
                         value={scrapbook.name}
                         onChange={changeScrapbookState}
                     />
@@ -72,13 +72,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="content">Description</label>
+                    <label htmlFor="content">Description: </label>
                     <input
                         required autoFocus
                         type="text"
                         name="description"
                         className="form-control"
-                        placeholder="Describe This Scrapbook.."
+                        placeholder="describe this scrapbook.."
                         value={scrapbook.description}
                         onChange={changeScrapbookState}
                     />
@@ -86,13 +86,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="state">State:</label>
+                    <label htmlFor="state">State: </label>
                     <input
                         required autoFocus
                         type="text"
                         name="state"
                         className="form-control"
-                        placeholder="What State Are You In.."
+                        placeholder="what state are you in?.."
                         value={scrapbook.state}
                         onChange={changeScrapbookState}
                     />
@@ -106,14 +106,14 @@ export const ScrapbookForm = () => {
                         type="text"
                         name="destination"
                         className="form-control"
-                        placeholder="Where Is Your Final Destination?.."
+                        placeholder="where is your final destination?"
                         value={scrapbook.destination}
                         onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset> <fieldset>
                 <div className="form-group">
-                    <label htmlFor="content">Date Posting:</label>
+                    <label htmlFor="content">Date Posting: </label>
                     <input
                         required autoFocus
                         type="date"
@@ -127,13 +127,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="favorite_foodstop">Favorite Food Stop:</label>
+                    <label htmlFor="favorite_foodstop">Favorite Food Stop: </label>
                     <input
                         required autoFocus
                         type="text"
                         name="favorite_foodstop"
                         className="form-control"
-                        placeholder="Favorite Food"
+                        placeholder="what was your favorite place to eat?"
                         value={scrapbook.favorite_foodstop}
                         onChange={changeScrapbookState}
                     />
@@ -147,7 +147,7 @@ export const ScrapbookForm = () => {
                         type="text"
                         name="soundtrack"
                         className="form-control"
-                        placeholder="What Was The Trip Soundtrack?"
+                        placeholder="what have you been listening to?"
                         value={scrapbook.soundtrack}
                         onChange={changeScrapbookState}
                     />
@@ -161,7 +161,7 @@ export const ScrapbookForm = () => {
                         type="text"
                         name="favorite_experience"
                         className="form-control"
-                        placeholder="Content"
+                        placeholder="what was the best so far?"
                         value={scrapbook.favorite_experience}
                         onChange={changeScrapbookState}
                     />
@@ -175,7 +175,7 @@ export const ScrapbookForm = () => {
                         type="text"
                         name="other_info"
                         className="form-control"
-                        placeholder="Other Info"
+                        placeholder="anything else you'd like to add?"
                         value={scrapbook.other_info}
                         onChange={changeScrapbookState}
                     />
@@ -235,7 +235,7 @@ export const ScrapbookForm = () => {
                     }
 
                     createScrapbook(newScrapbook)
-                        .then(() => history.push("/"))
+                        .then(() => history.push("/MyBooks"))
                         .then(getScrapbooks)
                 }}
                 className="btn btn-primary">Create</button>

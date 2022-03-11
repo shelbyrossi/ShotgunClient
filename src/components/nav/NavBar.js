@@ -47,6 +47,9 @@ export const NavBar = ({ token, setToken }) => {
 							<Link to='/MyBooks' className='navbar-item'>
 								Your Books!
 							</Link>
+							<Link to='/uploadImages' className='navbar-item'>
+								Upload Photos!
+							</Link>
 						
 						</>
 					) : (

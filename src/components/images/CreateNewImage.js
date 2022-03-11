@@ -71,6 +71,7 @@ export const ImageForm = ({getAllImages}) => {
       <button type="submit"
         onClick={evt => {
           evt.preventDefault()
+         
 
           const image = {
             image_url:currentImage.image_url,
@@ -78,9 +79,13 @@ export const ImageForm = ({getAllImages}) => {
           }
 
           createImage(image)
-            .then(() => history.push("/"))
+            .then(() => history.push("/uploadImages"))
             //below we rerendering page with getAllCategories function
             .then(getAllImages)
+
+          alert("Image uploaded!")
+
+            
         }}
         className="btn btn-primary">Create</button>
     </form>
