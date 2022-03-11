@@ -8,7 +8,7 @@
   }
 
   export const deleteScrapbook = (scrapbookId) => {
-	return fetch(`http://localhost:8000/scrapbooks/${scrapbookId}`, {
+	return fetch(`http://localhost:8000/scrapbook/${scrapbookId}`, {
 	  method: "Delete",
 	  headers: {
 		"Authorization": `Token ${localStorage.getItem("token")}`,
@@ -40,8 +40,8 @@ export const updateScrapbook = (scrapbook) => {
 	})
   }
 
-  export const getScrapbook = (ScrapbookId) => {
-    return fetch(`http://localhost:8000/Scrapbook/${ScrapbookId}`, {
+  export const getScrapbookById = (scrapbookId) => {
+    return fetch(`http://localhost:8000/scrapbook/${scrapbookId}`, {
       headers: {
         'Authorization': `Token ${localStorage.getItem('token')}`
       }
@@ -69,13 +69,7 @@ export const getImages = () => {
   }
 
 
-export const getScrapbookById = (scrapbookId) => {
-	return fetch(`http://localhost:8000/scrapbook/${scrapbookId}`, {
-		headers: {
-			Authorization: `Token ${localStorage.getItem("token")}`,
-		},
-	}).then((res) => res.json())
-}
+
 
 export const getScrapbookByCurrentUser = (userId) => {
 	return fetch(`http://localhost:8000/scrapbook?user_id=${userId}`, {
@@ -83,4 +77,13 @@ export const getScrapbookByCurrentUser = (userId) => {
 			Authorization: `Token ${localStorage.getItem('token')}`,
 		}
 	}).then((res) => res.json())
+  }
+
+
+  export const get_post_tags = (tagsId) => {
+	return fetch(`http://localhost:8000/scrapbooktags?tags_id=${tagsId}`, {
+		headers: {
+			"Authorization": `Token ${localStorage.getItem('token')}`
+		}
+	}).then(res => res.json())
   }

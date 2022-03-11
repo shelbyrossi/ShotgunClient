@@ -1,7 +1,7 @@
 
 
   export const deleteImage = (imageId) => {
-	return fetch(`http://localhost:8000/categories/${imageId}`, {
+	return fetch(`http://localhost:8000/image/${imageId}`, {
 	  method: "Delete",
 	  headers: {
 		"Authorization": `Token ${localStorage.getItem("token")}`,
@@ -51,3 +51,12 @@ export const updateImage = (image) => {
 	  }
 	}).then(res => res.json())
   }
+
+  export const get_scrapbook_image = (scrapbookId) => {
+	return fetch(`http://localhost:8000/image?scrapbook_id=${scrapbookId}`, {
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
+

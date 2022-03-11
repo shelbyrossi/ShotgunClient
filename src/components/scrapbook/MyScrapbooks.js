@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getThisUser } from "../users/UserManager"
-import { getScrapbookByCurrentUser } from "./ScrapbookManager"
+import { getScrapbookByCurrentUser} from "./ScrapbookManager"
+
 
 
 export const MyScrapbook = () => {
@@ -10,46 +10,37 @@ export const MyScrapbook = () => {
 	// useState passes a value as argument and returns ARRAY WHEN INVOKED
 
 	const [currentUser, setCurrentUser] = useState({})
-	const [scrapbook, setScrapbook] = useState([])
+	const [scrapbook, setBook] = useState([])
 
-	useEffect(() => {
-		const token = localStorage.getItem("token")
-		getThisUser(token).then((user) => {
-			setCurrentUser(user)
-		})
-	}, [])
+	
 
 	useEffect(() => {
 		// Query string parameter
 		const userId = currentUser.id
-		getScrapbookByCurrentUser(userId).then((userBook) => {
-			setScrapbook(userBook)
+		getScrapbookByCurrentUser(userId).then((userScrapbook) => {
+			setBook(userScrapbook)
 		})
 	}, [currentUser])
 
 
-	
-    return (
+ return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
 
-         
 
-            <div className="Scrapbooks"></div>
+            <div className="Tags"></div>
             {
                 scrapbook.map(
-                    (finishedBooks) => {
+                    (book) => {
 
                         return <center>
 
-                            <div className="finishedBooksList"><div key={`finishedBooks.id-${finishedBooks.id}`}>
-
-                             <Link to={`/scrapbooks/${finishedBooks.id}`}>{finishedBooks.name} {finishedBooks.date}</Link> 
+                            <div className="card equal-height has-text-centered"><div key={`book.id-${book.id}`}>
 
 
-                               
 
-                               
+                                
+                               <Link to={`/scrapbooks/${book.id}`}> {book.name}</Link> 
 
 
                             </div>
