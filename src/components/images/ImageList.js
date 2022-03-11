@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import {getImages} from "../images/ImageManager"
 import {getScrapbookById} from "../scrapbook/ScrapbookManager"
 import {useParams} from "react-router-dom"
+import "./images.css"
 
 export const ImageList = () => {
 
@@ -9,6 +10,7 @@ const [images, setImages] = useState([])
 const {scrapbookId} = useParams()
 const [scrapbooks, setScrapbooks] = useState([])
 const [isLoading, setIsLoading] = useState(true)
+const [foundImage, setFoundImage] = useState([])
 
 
 // getting all images and setting state
@@ -19,9 +21,10 @@ useEffect(() => {
     getImages().then(data => {
         console.table(data)
         setImages(data)
+        setIsLoading(false)
+        setFoundImage(data.filter(i => i.scrapbook["id"] === parseInt(scrapbookId)))
     })
     // getAllImages()
-    setIsLoading(false)
 }, [])
 
 
@@ -34,10 +37,11 @@ useEffect(
     [scrapbookId] // Above function runs when the value of scrapbookId changes
 )
 
+
+
 if(isLoading) return <>Loading data </>
 
 // filtering images for scrapbook id on images that matches scrapbookId
-const foundImage = images.filter(i => i.scrapbook["id"] === scrapbookId)
 
 
 return (
