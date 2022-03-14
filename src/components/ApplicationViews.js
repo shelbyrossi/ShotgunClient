@@ -5,6 +5,7 @@ import { ImageForm } from "./images/CreateNewImage"
 import {MyScrapbook} from "./scrapbook/MyScrapbooks"
 import {ImageList} from "./images/ImageList"
 import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
+import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
 
 
 export const ApplicationViews = () => {
@@ -23,13 +24,16 @@ export const ApplicationViews = () => {
                 <MyScrapbook />
             </Route>
        
-            <Route exact path='/scrapbooks/:scrapbookId(\d+)'>
+            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
                 {/* child */}
                 <ShowScrapbookDetails/>
             </Route>
-            <Route exact path='/scrapbooks/:scrapbookId(\d+)'>
+            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
                 {/* child */}
                 <ImageList/>
+            </Route>
+            <Route exact path="/scrapbooktags/:scrapbooktagsId(\d+)/update">
+                < UpdateScrapbook/>
             </Route>
            
 

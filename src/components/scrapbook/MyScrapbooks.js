@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getScrapbookByCurrentUser} from "./ScrapbookManager"
+import { getScrapbookTagsByCurrentUser} from "./ScrapbookManager"
 
 
 
@@ -17,7 +17,7 @@ export const MyScrapbook = () => {
 	useEffect(() => {
 		// Query string parameter
 		const userId = currentUser.id
-		getScrapbookByCurrentUser(userId).then((userScrapbook) => {
+		getScrapbookTagsByCurrentUser(userId).then((userScrapbook) => {
 			setBook(userScrapbook)
 		})
 	}, [currentUser])
@@ -40,7 +40,7 @@ export const MyScrapbook = () => {
 
 
                                 
-                               <Link to={`/scrapbooks/${book.id}`}> {book.name}</Link> 
+                               <Link to={`/scrapbooktags/${book.id}`}> {book.scrapbook.name}</Link> 
 
 
                             </div>
