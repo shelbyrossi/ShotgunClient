@@ -1,42 +1,26 @@
 import React, { useEffect, useState } from "react"
-import {getScrapbookById} from "./ScrapbookManager"
+import {getScrapbookTagById} from "./ScrapbookManager"
 import {deleteScrapbook} from "./ScrapbookManager"
 import {useParams} from "react-router-dom"
-import {get_post_tags} from "./ScrapbookManager"
-import {getImages} from "../images/ImageManager"
 import { Link } from "react-router-dom"
 
 export const ShowScrapbookDetails = () => {
 
     const [scrapbookDetails, showDetails] = useState([])
-    const [tags, showTags] = useState([])
-    const {scrapbookId} = useParams()
+    const {scrapbooktagsId} = useParams()
    
-    const {tagsId} = useParams()
+    
 
     useEffect(
 		() => {
-			getScrapbookById(scrapbookId)
+			getScrapbookTagById(scrapbooktagsId)
 				// setting booking state
 				.then(showDetails)
 		},
-		[scrapbookId] // Above function runs when the value of bookingId changes
+		[scrapbooktagsId] // Above function runs when the value of bookingId changes
 	)
 
-
-    useEffect(
-		() => {
-			get_post_tags(tagsId)
-				// setting booking state
-				.then(showTags)
-		},
-		[tagsId] // Above function runs when the value of bookingId changes
-	)
-
-   
-
-  
-
+    
     return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
@@ -50,15 +34,16 @@ export const ShowScrapbookDetails = () => {
 
                             <div className="card equal-height has-text-centered"><div key={`details.id-${scrapbookDetails.id}`}>
 
-                                <div>{scrapbookDetails?.name} </div>
-                                <div>{scrapbookDetails?.description} </div>
-                                <div>{scrapbookDetails?.state} </div>
-                                <div>{scrapbookDetails?.date} </div>
-                                <div>{scrapbookDetails?.destination} </div>
-                                <div>{scrapbookDetails?.favorite_foodstop} </div>
-                                <div>{scrapbookDetails?.soundtrack} </div>
-                                <div>{scrapbookDetails?.favorite_experience} </div>
-                                <div>{scrapbookDetails?.other_info} </div>
+                                <div>{scrapbookDetails?.scrapbook?.name} </div>
+                                <div>{scrapbookDetails?.scrapbook?.description} </div>
+                                <div>{scrapbookDetails?.scrapbook?.state} </div>
+                                <div>{scrapbookDetails?.scrapbook?.date} </div>
+                                <div>{scrapbookDetails?.scrapbook?.destination} </div>
+                                <div>{scrapbookDetails?.scrapbook?.favorite_foodstop} </div>
+                                <div>{scrapbookDetails?.scrapbook?.soundtrack} </div>
+                                <div>{scrapbookDetails?.scrapbook?.favorite_experience} </div>
+                                <div>{scrapbookDetails?.scrapbook?.other_info} </div>
+                             
 
                                
                                 
@@ -67,7 +52,7 @@ export const ShowScrapbookDetails = () => {
                                 
 
                                 
-                                {/* <Link className="button is-link is-dark" to={`/tags/${finishedTags.id}/update`}>Edit Tag</Link> */}
+                                <Link className="button is-link is-dark" to={`/scrapbooktags/${scrapbookDetails.id}/update`}>Edit Scrapbook</Link>
 
 
                             </div>

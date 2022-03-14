@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { createImage, getScrapbooks, getImages} from './ImageManager.js'
+import { createImage, getScrapbookTags, getImages} from './ImageManager.js'
 
 
 
@@ -11,7 +11,7 @@ export const ImageForm = ({getAllImages}) => {
 
   const [currentImage, setImage] = useState({
     image_url: "",
-    scrapbookId: 1
+    scrapbook_tag: ""
   })
 
 
@@ -19,7 +19,7 @@ export const ImageForm = ({getAllImages}) => {
 
     useEffect(() => {
         getImages().then((data) => setImage(data))
-        getScrapbooks().then((data) => setScrapbook(data))
+        getScrapbookTags().then((data) => setScrapbook(data))
     }, [])
 
 
@@ -35,7 +35,7 @@ export const ImageForm = ({getAllImages}) => {
  
   useEffect(() => {
     // TODO: Get the game types, then set the state
-    getScrapbooks().then(scrapbooks=> setScrapbook(scrapbooks))
+    getScrapbookTags().then(scrapbooks=> setScrapbook(scrapbooks))
   }, [])
 
 
@@ -58,10 +58,10 @@ export const ImageForm = ({getAllImages}) => {
       <fieldset>
         <div>
           <label>Choose A Scrapbook</label>
-          <select onChange={changeImageState} name="scrapbookId" value={currentImage.scrapbookId}>
+          <select onChange={changeImageState} name="scrapbook_tag" value={currentImage.scrapbook_tag}>
             <option value="0">Select a book</option>
             {
-              scrapbooks.map(scrapbookType => <option value={scrapbookType.id}>{scrapbookType.name}</option>)
+              scrapbooks.map(scrapbookType => <option value={scrapbookType.scrapbook.id}>{scrapbookType.scrapbook.name}</option>)
             }
           </select>
         </div>
@@ -75,15 +75,17 @@ export const ImageForm = ({getAllImages}) => {
 
           const image = {
             image_url:currentImage.image_url,
-            scrapbook: parseInt(currentImage.scrapbookId)
+            scrapbook_tag:{ 
+              id: parseInt(currentImage.scrapbook_tag)
+            }
           }
 
           createImage(image)
             .then(() => history.push("/uploadImages"))
             //below we rerendering page with getAllCategories function
-            .then(getAllImages)
+            .then(getImages)
 
-          alert("Image uploaded!")
+         
 
             
         }}

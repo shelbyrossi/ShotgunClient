@@ -42,3 +42,15 @@ export const createTag = (tag) => {
       }
     }).then(res => res.json())
   }  
+
+
+export const fetchTags = () => {
+  return fetch("http://localhost:8000/tags", {
+      method: "GET",
+      headers: {
+          "Authorization": `Token ${localStorage.getItem("token")}`
+      }
+  })
+      .then((res) => res.json())
+     
+}
