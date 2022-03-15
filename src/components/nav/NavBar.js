@@ -50,6 +50,10 @@ export const NavBar = ({ token, setToken }) => {
 							<Link to='/uploadImages' className='navbar-item'>
 								Upload Photos!
 							</Link>
+							<Link to='/scrapbookFeed' className='navbar-item'>
+								Hitchike!
+							</Link>
+						
 						
 						</>
 					) : (

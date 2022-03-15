@@ -4,8 +4,10 @@ import {ScrapbookForm} from "./scrapbook/CreateNewScrapbook"
 import { ImageForm } from "./images/CreateNewImage"
 import {MyScrapbook} from "./scrapbook/MyScrapbooks"
 import {ImageList} from "./images/ImageList"
+
 import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
 import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
+import {FeedScrapbooks} from "./feed/AllScrapbooks"
 
 
 export const ApplicationViews = () => {
@@ -32,8 +34,12 @@ export const ApplicationViews = () => {
                 {/* child */}
                 <ImageList/>
             </Route>
+
             <Route exact path="/scrapbooktags/:scrapbooktagsId(\d+)/update">
                 < UpdateScrapbook/>
+            </Route>
+            <Route exact path="/scrapbookFeed">
+                < FeedScrapbooks/>
             </Route>
            
 
