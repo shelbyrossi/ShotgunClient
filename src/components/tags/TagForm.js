@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { createTag, fetchTags } from "./TagManager"
 
-import "./tags.css"
 
 export const TagForm = ({getAllTags}) => {
 	const history = useHistory()
@@ -11,7 +10,6 @@ export const TagForm = ({getAllTags}) => {
 	const [currentTags, setCurrentTags] = useState({
 		label: ""
 	})
-
 
 
 	const changeTag = (domEvent) => {
@@ -47,7 +45,7 @@ export const TagForm = ({getAllTags}) => {
 
 						// Send POST request to your API
 						createTag(tag)
-							.then(() => history.push("/tags"))
+							.then(() => history.push("/CreateScrapbook"))
 							.then(getAllTags)
 					}}
 					className="button is-link is-dark">Create</button>

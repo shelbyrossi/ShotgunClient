@@ -8,7 +8,8 @@ import {ImageList} from "./images/ImageList"
 import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
 import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
 import {FeedScrapbooks} from "./feed/AllScrapbooks"
-
+import {FindUser} from "./users/FindUser"
+import {TagForm} from "./tags/TagForm"
 
 export const ApplicationViews = () => {
     return (
@@ -41,6 +42,12 @@ export const ApplicationViews = () => {
             <Route exact path="/scrapbookFeed">
                 < FeedScrapbooks/>
             </Route>
+            <Route exact path="/findUser">
+                < FindUser/>
+            </Route>
+           
+           
+           
            
 
 

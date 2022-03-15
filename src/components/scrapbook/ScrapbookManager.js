@@ -104,10 +104,4 @@ export const getScrapbookByCurrentUser = (userId) => {
 
 
 
-  export const get_post_tags = (tagsId) => {
-	return fetch(`http://localhost:8000/scrapbooktags?tags_id=${tagsId}`, {
-		headers: {
-			"Authorization": `Token ${localStorage.getItem('token')}`
-		}
-	}).then(res => res.json())
-  }
+
