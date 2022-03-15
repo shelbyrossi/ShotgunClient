@@ -61,7 +61,7 @@ export const ImageForm = ({getAllImages}) => {
           <select onChange={changeImageState} name="scrapbook_tag" value={currentImage.scrapbook_tag}>
             <option value="0">Select a book</option>
             {
-              scrapbooks.map(scrapbookType => <option value={scrapbookType.scrapbook.id}>{scrapbookType.scrapbook.name}</option>)
+              scrapbooks.map(scrapbookType => <option value={scrapbookType.id}>{scrapbookType.scrapbook.name}</option>)
             }
           </select>
         </div>
@@ -82,8 +82,10 @@ export const ImageForm = ({getAllImages}) => {
 
           createImage(image)
             .then(() => history.push("/uploadImages"))
+            window.alert("Image Uploaded")
             //below we rerendering page with getAllCategories function
             .then(getImages)
+
 
          
 

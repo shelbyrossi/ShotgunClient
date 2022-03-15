@@ -15,8 +15,8 @@
 	}).then(res => res.json())
   }
 
-  export const deleteScrapbook = (scrapbookId) => {
-	return fetch(`http://localhost:8000/scrapbook/${scrapbookId}`, {
+  export const deleteScrapbookTag = (scrapbooktagsId) => {
+	return fetch(`http://localhost:8000/scrapbooktags/${scrapbooktagsId}`, {
 	  method: "Delete",
 	  headers: {
 		"Authorization": `Token ${localStorage.getItem("token")}`,

@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
-import { getScrapbookTagById, getScrapbooks, updateScrapbook } from "./ScrapbookManager"
+
+import { getScrapbookTagById, updateScrapbook } from "./ScrapbookManager"
 
 
 export const UpdateScrapbook = () => {
     const history = useHistory()
     const { scrapbooktagsId } = useParams()
     const [scrapbookTag, setScrapbookTagUpdate] = useState({ // Declaring State variable
-        scrapbook_id: "",
-        tag_id: ""
+            scrapbook_tag: "",
+            
 
 
     })
 
-
+ 
 
 
     useEffect(() => {
         getScrapbookTagById(scrapbooktagsId).then(data => setScrapbookTagUpdate({
-            scrapbook_id: data.scrapbook_id,
-            tag_id: data.tag_id
-           
+              
+        
 
 
         }))
@@ -171,35 +171,6 @@ export const UpdateScrapbook = () => {
 
 
 
-            <div className="field my-5">
-                <label className="label"> Tags </label>
-                {
-                    scrapbookTag.map(
-                        (tag) => {
-                            return <div className="control my-2">
-                                <label className="checkbox has-text-weight-medium">
-                                    <input
-                                        type="checkbox"
-                                        className="mr-2"
-                                        name="tag"
-                                        value={tag.id}
-                                        key={`tag--${tag.id}`}
-                                        onChange={(evt) => {
-                                            const copy = { ...scrapbookTag}
-                                                
-                                            setScrapbookTagUpdate(copy)
-                                        }} />
-                                    {tag.label}
-                                </label>
-                            </div>
-                        }
-                    )
-                }
-            </div>
-
-
-
-
 
 
 
@@ -207,10 +178,15 @@ export const UpdateScrapbook = () => {
                 onClick={evt => {
                     evt.preventDefault()
 
+                    const newBook = {
+                        scrapbook_tag: scrapbookTag.scrapbook_tag
+                    }
 
-                    setScrapbookTagUpdate(scrapbooktagsId, scrapbookTag)
-                        .then(() => history.push("/scrapbooks/:scrapbookId(\d+)"))
-                        .then(getScrapbooks)
+
+                    updateScrapbook(newBook)
+                        .then(() => history.push("/MyBooks"))
+                        .then(getScrapbookTagById)
+
                 }}
                 className="btn btn-primary">Update</button>
         </form>
