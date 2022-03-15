@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 
-import { createScrapbook,  getTags, getScrapbooks } from "./ScrapbookManager"
+import { createScrapbook, getScrapbooks } from "./ScrapbookManager"
+import { fetchTags, deleteTags } from "../tags/TagManager"
+import { TagForm} from "../tags/TagForm"
 
 
 
@@ -17,6 +20,13 @@ export const ScrapbookForm = () => {
     const history = useHistory()
 
 
+    const getAllTags = () => fetchTags().then(data => setTags(data))
+
+    useEffect(() => {
+        getAllTags()
+    }, [])
+
+
 
     const [scrapbook, setScrapbook] = useState({ // Declaring State variable
         user: "",
@@ -29,7 +39,7 @@ export const ScrapbookForm = () => {
         soundtrack: "",
         favorite_experience: "",
         other_info: "",
-      
+
         tags: new Set()
 
     })
@@ -37,8 +47,8 @@ export const ScrapbookForm = () => {
 
 
     useEffect(() => {
-       
-        getTags().then((data) => setTags(data))
+
+        fetchTags().then((data) => setTags(data))
     }, [])
 
 
@@ -182,8 +192,8 @@ export const ScrapbookForm = () => {
                 </div>
             </fieldset>
 
-        
-         
+
+
 
 
             <div className="field my-5">
@@ -206,10 +216,24 @@ export const ScrapbookForm = () => {
                                                 : copy.tags.add(parseInt(evt.target.value))
                                             setScrapbook(copy)
                                         }} />
-                                    {tag.label}
+                                    {tag.label} 
+                        
+
+                        <button className="button is-link is-dark" onClick={() => {
+                                    deleteTags(tag.id).then(getAllTags);
+                                }}>Delete</button>
+                               
+
+
+
+
+                       
+                    
+
                                 </label>
                             </div>
                         }
+
                     )
                 }
             </div>
@@ -239,7 +263,14 @@ export const ScrapbookForm = () => {
                         .then(getScrapbooks)
                 }}
                 className="btn btn-primary">Create</button>
+            <TagForm getAllTags={getAllTags} />
         </form>
+
+
     )
 }
+
+
+
+
 

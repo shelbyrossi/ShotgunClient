@@ -53,6 +53,10 @@ export const NavBar = ({ token, setToken }) => {
 							<Link to='/scrapbookFeed' className='navbar-item'>
 								Hitchike!
 							</Link>
+							<Link to='/findUser' className='navbar-item'>
+								user!
+							</Link>
+						
 						
 						
 						</>

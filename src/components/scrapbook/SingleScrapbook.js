@@ -21,6 +21,7 @@ export const ShowScrapbookDetails = () => {
         [scrapbooktagsId] // Above function runs when the value of bookingId changes
     )
 
+    
 
     return (
         //  <> Fragment - putting all return elements into one JXS element 

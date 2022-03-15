@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react"
 
 
 
-export const deleteTags = (tagId) => {
-    return fetch(`http://localhost:8000/tags/${tagId}`, {
+export const deleteTags = (tagsId) => {
+    return fetch(`http://localhost:8000/tags/${tagsId}`, {
         method: "Delete",
         headers: {
             "Authorization": `Token ${localStorage.getItem("token")}`,

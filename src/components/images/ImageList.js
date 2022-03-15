@@ -4,7 +4,7 @@ import {getScrapbookTagById} from "../scrapbook/ScrapbookManager"
 import {useParams} from "react-router-dom"
 import "./images.css"
 
-export const ImageList = () => {
+export const ImageList = ({setFoundImages, showFoundImages, book}) => {
 
 const [images, setImages] = useState([])
 const {scrapbooktagsId} = useParams()
