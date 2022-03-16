@@ -44,8 +44,8 @@ export const updateImage = (image) => {
 
 
 
-  export const getScrapbookTags = () => {
-	return fetch("http://localhost:8000/scrapbooktags", {
+  export const getScrapbooks = () => {
+	return fetch("http://localhost:8000/scrapbook", {
 	  headers: {
 		'Authorization': `Token ${localStorage.getItem('token')}`
 	  }

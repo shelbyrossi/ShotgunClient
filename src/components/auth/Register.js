@@ -12,6 +12,7 @@ export const Register = () => {
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const history = useHistory()
+    const isAdmin = useRef()
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -23,7 +24,8 @@ export const Register = () => {
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
                 "bio": bio.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "admin": isAdmin.current.checked
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -37,7 +39,7 @@ export const Register = () => {
                 .then(res => res.json())
                 .then(res => {
                     if ("token" in res) {
-                        localStorage.setItem("lu_token", res.token)
+                        localStorage.setItem("token", res.token)
                         history.push("/login")
                     }
                 })
@@ -71,7 +73,7 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="inputEmail"> Email</label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="email" required />
-                </fieldset>      
+                </fieldset>
                 <fieldset>
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
@@ -84,6 +86,17 @@ export const Register = () => {
                     <label htmlFor="bio"> Bio</label>
                     <textarea ref={bio} name="bio" className="form-control" placeholder="Let other gamers know a little bit about you..." />
                 </fieldset>
+                <div className="field">
+                    <label className="label">Admin</label>
+                    <div className="control">
+                        <input type="checkbox" ref={isAdmin}></input>
+                    </div>
+                </div>
+
+
+
+
+
                 <fieldset style={{
                     textAlign: "center"
                 }}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { getScrapbookTagById } from "./ScrapbookManager"
-import { deleteScrapbookTag } from "./ScrapbookManager"
+import { getScrapbookById } from "./ScrapbookManager"
+import { deleteScrapbook } from "./ScrapbookManager"
 import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import { Link } from "react-router-dom"
@@ -8,17 +8,17 @@ import { Link } from "react-router-dom"
 export const ShowScrapbookDetails = () => {
 
     const [scrapbookDetails, showDetails] = useState([])
-    const { scrapbooktagsId } = useParams()
+    const { scrapbookId } = useParams()
 
     const history = useHistory()
 
     useEffect(
         () => {
-            getScrapbookTagById(scrapbooktagsId)
+            getScrapbookById(scrapbookId)
                 // setting booking state
                 .then(showDetails)
         },
-        [scrapbooktagsId] // Above function runs when the value of bookingId changes
+        [scrapbookId] // Above function runs when the value of bookingId changes
     )
 
     
@@ -36,16 +36,16 @@ export const ShowScrapbookDetails = () => {
 
                 <div className="card equal-height has-text-centered"><div key={`details.id-${scrapbookDetails.id}`}>
 
-                    <div>{scrapbookDetails?.scrapbook?.name} </div>
-                    <div>{scrapbookDetails?.scrapbook?.description} </div>
-                    <div>{scrapbookDetails?.scrapbook?.state} </div>
-                    <div>{scrapbookDetails?.scrapbook?.date} </div>
-                    <div>{scrapbookDetails?.scrapbook?.destination} </div>
-                    <div>{scrapbookDetails?.scrapbook?.favorite_foodstop} </div>
-                    <div>{scrapbookDetails?.scrapbook?.soundtrack} </div>
-                    <div>{scrapbookDetails?.scrapbook?.favorite_experience} </div>
-                    <div>{scrapbookDetails?.scrapbook?.other_info} </div>
-                    <div>{scrapbookDetails?.tag?.label} </div>
+                    <div>{scrapbookDetails?.name} </div>
+                    <div>{scrapbookDetails?.description} </div>
+                    <div>{scrapbookDetails?.state} </div>
+                    <div>{scrapbookDetails?.date} </div>
+                    <div>{scrapbookDetails?.destination} </div>
+                    <div>{scrapbookDetails?.favorite_foodstop} </div>
+                    <div>{scrapbookDetails?.soundtrack} </div>
+                    <div>{scrapbookDetails?.favorite_experience} </div>
+                    <div>{scrapbookDetails?.other_info} </div>
+                   
 
 
 
@@ -55,8 +55,7 @@ export const ShowScrapbookDetails = () => {
 
 
 
-
-                    <div> <Link className="button is-link is-dark" to={`/scrapbooktags/${scrapbookDetails.id}/update`}>Edit Scrapbook</Link></div>
+                    <div> <Link className="button is-link is-dark" to={`/scrapbook/${scrapbookDetails.id}/update`}>Edit Scrapbook</Link></div>
 
                     <div>
 
@@ -64,7 +63,7 @@ export const ShowScrapbookDetails = () => {
 
 
 
-                            deleteScrapbookTag(scrapbookDetails.id)
+                            deleteScrapbook(scrapbookDetails.id)
                                 .then(() => history.push("/MyBooks"))
                                
 
