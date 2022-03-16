@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { createImage, getScrapbookTags, getImages} from './ImageManager.js'
+import { createImage, getScrapbooks, getImages} from './ImageManager.js'
 
 
 
@@ -11,15 +11,13 @@ export const ImageForm = ({getAllImages}) => {
 
   const [currentImage, setImage] = useState({
     image_url: "",
-    scrapbook_tag: ""
+    scrapbook: ""
   })
-
-
 
 
     useEffect(() => {
         getImages().then((data) => setImage(data))
-        getScrapbookTags().then((data) => setScrapbook(data))
+        getScrapbooks().then((data) => setScrapbook(data))
     }, [])
 
 
@@ -33,11 +31,7 @@ export const ImageForm = ({getAllImages}) => {
 
 
  
-  useEffect(() => {
-    // TODO: Get the game types, then set the state
-    getScrapbookTags().then(scrapbooks=> setScrapbook(scrapbooks))
-  }, [])
-
+  
 
   
 
@@ -58,10 +52,10 @@ export const ImageForm = ({getAllImages}) => {
       <fieldset>
         <div>
           <label>Choose A Scrapbook</label>
-          <select onChange={changeImageState} name="scrapbook_tag" value={currentImage.scrapbook_tag}>
+          <select onChange={changeImageState} name="scrapbook" value={currentImage.scrapbook}>
             <option value="0">Select a book</option>
             {
-              scrapbooks.map(scrapbookType => <option value={scrapbookType.id}>{scrapbookType.scrapbook.name}</option>)
+              scrapbooks.map(scrapbookType => <option value={scrapbookType.id}>{scrapbookType.name}</option>)
             }
           </select>
         </div>
@@ -75,16 +69,14 @@ export const ImageForm = ({getAllImages}) => {
 
           const image = {
             image_url:currentImage.image_url,
-            scrapbook_tag:{ 
-              id: parseInt(currentImage.scrapbook_tag)
-            }
+            scrapbook: currentImage.scrapbook
           }
 
           createImage(image)
             .then(() => history.push("/uploadImages"))
             window.alert("Image Uploaded")
             //below we rerendering page with getAllCategories function
-            .then(getImages)
+            
 
 
          

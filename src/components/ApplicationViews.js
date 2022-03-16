@@ -28,15 +28,15 @@ export const ApplicationViews = () => {
                 <MyScrapbook />
             </Route>
        
-            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
+            <Route exact path='/scrapbook/:scrapbookId(\d+)'>
                 {/* child */}
                 <ShowScrapbookDetails/>
             </Route>
-            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
+            <Route exact path='/scrapbook/:scrapbookId(\d+)'>
                 {/* child */}
                 <ImageList/>
             </Route>
-            <Route exact path="/scrapbooktags/:scrapbooktagsId(\d+)/update">
+            <Route exact path="/scrapbook/:scrapbookId(\d+)/update">
                 < UpdateScrapbook/>
             </Route>
             <Route exact path="/users/:usersId(\d+)">
@@ -48,6 +48,7 @@ export const ApplicationViews = () => {
             <Route exact path="/ImageFound">
                 < ImageFound/>
             </Route>
+           
           
           
            

@@ -24,6 +24,15 @@
 	})
   }
 
+  export const deleteScrapbook = (scrapbook) => {
+	return fetch(`http://localhost:8000/scrapbook/${scrapbook}`, {
+	  method: "Delete",
+	  headers: {
+		"Authorization": `Token ${localStorage.getItem("token")}`,
+	  },
+	})
+  }
+
   export const createScrapbook = (scrapbook) => {
 	return fetch("http://localhost:8000/scrapbook" ,{
 	  method: "POST",
@@ -102,8 +111,8 @@ export const getScrapbookByCurrentUser = (userId) => {
 	}).then((res) => res.json())
   }
 
-  export const getScrapbookTagsByTag= (tag_id) => {
-    return fetch(`http://localhost:8000/scrapbooktags?tag_id=${tag_id}`, {
+  export const getScrapbookTagsByTag= (id) => {
+    return fetch(`http://localhost:8000/scrapbooktags?tag_id=${id}`, {
         headers: { 
             "Authorization": `Token ${localStorage.getItem("token")}`
         },

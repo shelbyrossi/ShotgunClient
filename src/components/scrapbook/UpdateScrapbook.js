@@ -2,44 +2,68 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 
-import { getScrapbookTagById, updateScrapbook } from "./ScrapbookManager"
+import { getScrapbookById, getScrapbooks, updateScrapbook } from "./ScrapbookManager"
+import { fetchTags, deleteTags } from "../tags/TagManager"
 
-
-export const UpdateScrapbook = () => {
+export const UpdateScrapbook= () => {
     const history = useHistory()
-    const { scrapbooktagsId } = useParams()
-    const [scrapbookTag, setScrapbookTagUpdate] = useState({ // Declaring State variable
-            scrapbook_tag: "",
-            
+    const [tags, setTags] = useState([])
+    const { scrapbookId } = useParams()
+    const [scrapbook, setScrapbook] = useState({ // Declaring State variable
+        user: "",
+        description: "",
+        name: "",
+        state: "",
+        destination: "",
+        date: "",
+        favorite_foodstop: "",
+        soundtrack: "",
+        favorite_experience: "",
+        other_info: "",
 
+        tags: new Set()
 
     })
 
- 
+  
+    const getAllTags = () => fetchTags().then(data => setTags(data))
+
+    useEffect(() => {
+        getAllTags()
+    }, [])
+
+
 
 
     useEffect(() => {
-        getScrapbookTagById(scrapbooktagsId).then(data => setScrapbookTagUpdate({
-              
-        
-
+        getScrapbookById(scrapbookId).then(data => setScrapbook({
+            user: data.user,
+            description: data.description,
+            name: data.name,
+            state: data.state,
+            destination: data.destination,
+            favorite_foodstop: data.favorite_foodstop,
+            soundtrack: data.soundtrack,
+            favorite_experience: data.favorite_experience,
+            other_info: "",
+            date: data.date,
+            tags: Array.from(data.tags)
 
         }))
     }, [])
 
-    //getting initial data to set on first render- this will change anytime scrapbookId changes 
+    //getting initial data to set on first render- this will change anytime categoryId changes 
 
-    const changeScrapbookTagUpdate = (domEvent) => {
-        const copy = { ...scrapbookTag }
+    const changeScrapbookState = (domEvent) => {
+        const copy = { ...scrapbook }
         copy[domEvent.target.name] = domEvent.target.value
-        setScrapbookTagUpdate(copy)
+        setScrapbook(copy)
 
     } //changing state of currentCategory based on changes to dom 
 
-
     return (
         <form className="CreateNewScrapbook">
-            <h2 className="CreateNewScrapbook__title">Update Scrapbook</h2>
+            <h2 className="CreateNewScrapbook__title">Add New Scrapbook</h2>
 
             <fieldset>
                 <div className="form-group">
@@ -50,8 +74,8 @@ export const UpdateScrapbook = () => {
                         name="name"
                         className="form-control"
                         placeholder="give your scrapbook a name.."
-                        value={scrapbookTag.name}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.name}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -64,8 +88,8 @@ export const UpdateScrapbook = () => {
                         name="description"
                         className="form-control"
                         placeholder="describe this scrapbook.."
-                        value={scrapbookTag.description}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.description}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -78,8 +102,8 @@ export const UpdateScrapbook = () => {
                         name="state"
                         className="form-control"
                         placeholder="what state are you in?.."
-                        value={scrapbookTag.state}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.state}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -92,8 +116,8 @@ export const UpdateScrapbook = () => {
                         name="destination"
                         className="form-control"
                         placeholder="where is your final destination?"
-                        value={scrapbookTag.destination}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.destination}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset> <fieldset>
@@ -105,8 +129,8 @@ export const UpdateScrapbook = () => {
                         name="date"
                         className="form-control"
                         placeholder="Please use format 0000-00-00"
-                        value={scrapbookTag.date}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.date}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -119,8 +143,8 @@ export const UpdateScrapbook = () => {
                         name="favorite_foodstop"
                         className="form-control"
                         placeholder="what was your favorite place to eat?"
-                        value={scrapbookTag.favorite_foodstop}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.favorite_foodstop}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -133,8 +157,8 @@ export const UpdateScrapbook = () => {
                         name="soundtrack"
                         className="form-control"
                         placeholder="what have you been listening to?"
-                        value={scrapbookTag.soundtrack}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.soundtrack}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -147,8 +171,8 @@ export const UpdateScrapbook = () => {
                         name="favorite_experience"
                         className="form-control"
                         placeholder="what was the best so far?"
-                        value={scrapbookTag.favorite_experience}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.favorite_experience}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -161,8 +185,8 @@ export const UpdateScrapbook = () => {
                         name="other_info"
                         className="form-control"
                         placeholder="anything else you'd like to add?"
-                        value={scrapbookTag.other_info}
-                        onChange={changeScrapbookTagUpdate}
+                        value={scrapbook.other_info}
+                        onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
@@ -171,22 +195,41 @@ export const UpdateScrapbook = () => {
 
 
 
-
+            <div className="field">
+                    <label className="label"> Tags </label>
+                    {
+                        tags.map(
+                            (tag) => {
+                                return <div className="control">
+                                    <label className="checkbox has-text-weight-small">
+                                        <input
+                                            type="checkbox"
+                                            className="mr-2"
+                                            name="tag"
+                                            value={tag.id}
+                                            key={`tag--${tag.id}`}
+                                            onChange={(evt) => {
+                                                const copy = { ...scrapbook }
+                                                
+                                                setScrapbook(copy)
+                                            }} />
+                                        {tag.label}
+                                    </label>
+                                </div>
+                            }
+                        )
+                    }
+                </div>
 
 
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
 
-                    const newBook = {
-                        scrapbook_tag: scrapbookTag.scrapbook_tag
-                    }
 
-
-                    updateScrapbook(newBook)
+                    updateScrapbook(scrapbookId, scrapbook)
                         .then(() => history.push("/MyBooks"))
-                        .then(getScrapbookTagById)
-
+                       
                 }}
                 className="btn btn-primary">Update</button>
         </form>
