@@ -10,7 +10,8 @@ import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
 import {FeedScrapbooks} from "./feed/AllScrapbooks"
 import {ImageFound} from "./images/FeedImages"
 
-import {TagForm} from "./tags/TagForm"
+
+
 
 export const ApplicationViews = () => {
     return (
@@ -26,8 +27,7 @@ export const ApplicationViews = () => {
             <Route exact path='/MyBooks'>
                 {/* child */}
                 <MyScrapbook />
-            </Route>
-       
+            </Route>      
             <Route exact path='/scrapbook/:scrapbookId(\d+)'>
                 {/* child */}
                 <ShowScrapbookDetails/>
@@ -38,6 +38,7 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/scrapbook/:scrapbookId(\d+)/update">
                 < UpdateScrapbook/>
+              
             </Route>
             <Route exact path="/users/:usersId(\d+)">
                 < UserDetails/>

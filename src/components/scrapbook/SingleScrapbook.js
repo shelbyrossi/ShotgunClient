@@ -15,13 +15,12 @@ export const ShowScrapbookDetails = () => {
     useEffect(
         () => {
             getScrapbookById(scrapbookId)
-                // setting booking state
+                // setting scrapbookDetails state
                 .then(showDetails)
         },
-        [scrapbookId] // Above function runs when the value of bookingId changes
+        [scrapbookId] // Above function runs when the value of scrapbookId changes
     )
-
-    
+  
 
     return (
         //  <> Fragment - putting all return elements into one JXS element 
@@ -30,9 +29,6 @@ export const ShowScrapbookDetails = () => {
 
             <div className="ScrapbookDetails"></div>
             {
-
-
-
 
                 <div className="card equal-height has-text-centered"><div key={`details.id-${scrapbookDetails.id}`}>
 
@@ -45,49 +41,25 @@ export const ShowScrapbookDetails = () => {
                     <div>{scrapbookDetails?.soundtrack} </div>
                     <div>{scrapbookDetails?.favorite_experience} </div>
                     <div>{scrapbookDetails?.other_info} </div>
+                    <div>{scrapbookDetails?.tags?.label} </div>
                    
-
-
-
-
-
-
-
-
-
-                    <div> <Link className="button is-link is-dark" to={`/scrapbook/${scrapbookDetails.id}/update`}>Edit Scrapbook</Link></div>
+                    <div> <Link className="button is-link is-dark" to={`/scrapbook/${scrapbookDetails.id}/update`}>
+                        Edit Scrapbook</Link></div>
 
                     <div>
-
                         <button className="button" onClick={() => {
-
-
 
                             deleteScrapbook(scrapbookDetails.id)
                                 .then(() => history.push("/MyBooks"))
                                
-
-
-
-
                         }}>Delete</button>
                     </div>
 
-
-
                 </div>
 
                 </div>
-
-
-
 
             }
-
-
-
-
-
 
         </>
     )

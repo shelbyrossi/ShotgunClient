@@ -15,9 +15,6 @@ export const UserDetails = () => {
     }, [usersId])
 
 
-
-
-
     return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
@@ -38,31 +35,10 @@ export const UserDetails = () => {
                     <div>{userDetails?.bio} </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
 
 
-
-
-
-
             }
-
-
-
-
 
 
         </>

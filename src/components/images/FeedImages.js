@@ -22,15 +22,13 @@ useEffect(() => {
         setIsLoading(false)
         setFoundImage(data.filter(i => i.scrapbook_tag["id"] === scrapbooks.id ))
     })
-    // getAllImages()
+
 }, [])
 
 
 useEffect(() => {
     getScrapbookTags().then((data) => setScrapbooks(data))
 }, [])
-
-
 
 
 if(isLoading) return <>Loading data </>
@@ -41,7 +39,6 @@ if(isLoading) return <>Loading data </>
 return (
     //  <> Fragment - putting all return elements into one JXS element 
     <>
-
 
 
         <div className="ScrapbookImages"></div>

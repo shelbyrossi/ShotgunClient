@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
 
 
-
-
 export const deleteTags = (tagsId) => {
     return fetch(`http://localhost:8000/tags/${tagsId}`, {
         method: "Delete",

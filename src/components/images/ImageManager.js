@@ -31,18 +31,24 @@
 }
 
 
-export const updateImage = (image) => {
-	return fetch(`http://localhost:8000/categories/${image.id}`, {
-	  method: "PUT",
-	  headers: {
-		"Authorization": `Token ${localStorage.getItem("token")}`,
-		'Content-Type': "application/json"
-	  },
-	  body: JSON.stringify(image)
+export const get_scrapbook_image = (scrapbookId) => {
+	return fetch(`http://localhost:8000/image?scrapbook_id=${scrapbookId}`, {
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
+
+export const updateImage = (imageId, image) => {
+	return fetch(`http://localhost:8000/image/${imageId}`, {
+		method: "PUT",
+		headers: {
+			"Authorization": `Token ${localStorage.getItem("token")}`,
+			'Content-Type': "application/json"
+		},
+		body: JSON.stringify(image)
 	})
-  }
-
-
+}
 
   export const getScrapbooks = () => {
 	return fetch("http://localhost:8000/scrapbook", {
@@ -52,11 +58,12 @@ export const updateImage = (image) => {
 	}).then(res => res.json())
   }
 
-  export const get_scrapbook_image = (scrapbookId) => {
-	return fetch(`http://localhost:8000/image?scrapbook_id=${scrapbookId}`, {
+
+export const getScrapbookByCurrentUser = (userId) => {
+	return fetch(`http://localhost:8000/scrapbook?user_id=${userId}`, {
 		headers: {
-			Authorization: `Token ${localStorage.getItem("token")}`,
-		},
-	}).then((res) => res.json())
-}
+			Authorization: `Token ${localStorage.getItem('token')}`,
+		}	
+	}).then((res) => res.json())	
+  }  
 

@@ -40,6 +40,8 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("token", res.token)
+                        localStorage.setItem("userId", res.id)
+            
                         history.push("/login")
                     }
                 })
