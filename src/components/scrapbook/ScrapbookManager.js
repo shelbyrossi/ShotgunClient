@@ -93,32 +93,32 @@ export const getImages = () => {
 	}).then(res => res.json())
   }
 
+  
+  export const getScrapbookTagsByTag= (id) => {
+	return fetch(`http://localhost:8000/scrapbooktags?tag_id=${id}`, {
+		headers: { 
+			"Authorization": `Token ${localStorage.getItem("token")}`
+		},
+	})
+		.then(res => res.json())
+}
+
+export const getUserById = (usersId) => {
+	return fetch(`http://localhost:8000/users/${usersId}`, {
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
 
 
 export const getScrapbookByCurrentUser = (userId) => {
 	return fetch(`http://localhost:8000/scrapbook?user_id=${userId}`, {
 		headers: {
 			Authorization: `Token ${localStorage.getItem('token')}`,
-		}
-	}).then((res) => res.json())
-  }
-
-  export const getScrapbookTagsByCurrentUser = (userId) => {
-	return fetch(`http://localhost:8000/scrapbooktags?user_id=${userId}`, {
-		headers: {
-			Authorization: `Token ${localStorage.getItem('token')}`,
-		}
-	}).then((res) => res.json())
-  }
-
-  export const getScrapbookTagsByTag= (id) => {
-    return fetch(`http://localhost:8000/scrapbooktags?tag_id=${id}`, {
-        headers: { 
-            "Authorization": `Token ${localStorage.getItem("token")}`
-        },
-    })
-        .then(res => res.json())
-}
+		}	
+	}).then((res) => res.json())	
+  }  
 
 
 

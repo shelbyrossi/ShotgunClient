@@ -18,8 +18,8 @@ export const Login = ({ setToken }) => {
 
     loginUser(user).then(res => {
       if ("valid" in res && res.valid) {
-        console.log(res)
-        setToken(res.token)
+        localStorage.setItem("token", res.token) 
+        localStorage.setItem("userId", res.id)
         history.push("/")
       }
       else {

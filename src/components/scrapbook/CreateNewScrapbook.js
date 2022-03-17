@@ -197,7 +197,7 @@ export const ScrapbookForm = () => {
 
 
             <div className="field my-5">
-                <label className="label"> Tags </label>
+                <label className="label"> Tag Your State </label>
                 {
                     tags.map(
                         (tag) => {

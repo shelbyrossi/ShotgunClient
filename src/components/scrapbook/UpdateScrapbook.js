@@ -25,14 +25,11 @@ export const UpdateScrapbook= () => {
 
     })
 
-  
     const getAllTags = () => fetchTags().then(data => setTags(data))
 
     useEffect(() => {
         getAllTags()
     }, [])
-
-
 
 
     useEffect(() => {
@@ -52,18 +49,18 @@ export const UpdateScrapbook= () => {
         }))
     }, [])
 
-    //getting initial data to set on first render- this will change anytime categoryId changes 
+    
 
     const changeScrapbookState = (domEvent) => {
         const copy = { ...scrapbook }
         copy[domEvent.target.name] = domEvent.target.value
         setScrapbook(copy)
 
-    } //changing state of currentCategory based on changes to dom 
+    } //changing state of currentScrapbooks based on changes to dom 
 
     return (
         <form className="CreateNewScrapbook">
-            <h2 className="CreateNewScrapbook__title">Add New Scrapbook</h2>
+            <h2 className="CreateNewScrapbook__title">Edit Scrapbook</h2>
 
             <fieldset>
                 <div className="form-group">
@@ -192,34 +189,7 @@ export const UpdateScrapbook= () => {
             </fieldset>
 
 
-
-
-
-            <div className="field">
-                    <label className="label"> Tags </label>
-                    {
-                        tags.map(
-                            (tag) => {
-                                return <div className="control">
-                                    <label className="checkbox has-text-weight-small">
-                                        <input
-                                            type="checkbox"
-                                            className="mr-2"
-                                            name="tag"
-                                            value={tag.id}
-                                            key={`tag--${tag.id}`}
-                                            onChange={(evt) => {
-                                                const copy = { ...scrapbook }
-                                                
-                                                setScrapbook(copy)
-                                            }} />
-                                        {tag.label}
-                                    </label>
-                                </div>
-                            }
-                        )
-                    }
-                </div>
+   
 
 
             <button type="submit"
