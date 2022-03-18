@@ -20,7 +20,7 @@ export const NavBar = () => {
                 <Link className="navbar_item" to="/uploadImages">UPLOAD PHOTOS</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar_item" to="scrapbookFeed">HITCHIKE</Link>
+                <Link className="navbar_item" to="scrapbookFeed">HITCHHIKE</Link>
             </li>
            
             
