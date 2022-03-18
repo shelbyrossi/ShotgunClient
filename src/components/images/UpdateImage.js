@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { createImage, getScrapbooks, getImages} from './ImageManager.js'
+import { createImage, getScrapbooks, getImages, updateImage} from './ImageManager.js'
 import { getScrapbookByCurrentUser} from "./ImageManager"
-import "./upload.css"
 
 
 //Below using props which is importing the getAllCategories function to get category data
-export const ImageForm = ({getAllImages}) => {
+export const UpdateImages = ({getAllImages}) => {
   const history = useHistory()
   const [scrapbooks, setScrapbook] = useState([])
   const [currentUser, setCurrentUser] = useState({})
@@ -44,20 +43,14 @@ export const ImageForm = ({getAllImages}) => {
   }
 
   return (
-
-    <center>
-
-
-    <div><img className="papaPhoto" src="https://res.cloudinary.com/dyjahmaif/image/upload/v1647609992/photo-output_9_kz6z2m.jpg"/></div>
-      <h2 className="imageForm__title">PHOTOS</h2>
     <form className="ImageForm">
+      <h2 className="imageForm__title">Upload Some Images!</h2>
 
       {/* IMAGE URL INPUT FIELD */}
       <fieldset>
         <div className="form-group">
-          <label htmlFor="url"> </label>
+          <label htmlFor="url">Url: </label>
           <input type="url" name="image_url" required autoFocus className="form-control"
-          placeholder="input url here.."
             value={currentImage.url}
             onChange={changeImageState}
           />
@@ -66,9 +59,9 @@ export const ImageForm = ({getAllImages}) => {
       <fieldset>
         {/* CHOOSE SCRAPBOOK DROP DOWN MENU */}
         <div>
-          <label></label>
+          <label>Choose A Scrapbook</label>
           <select onChange={changeImageState} name="scrapbook" value={currentImage.scrapbook}>
-            <option value="0">select a scrapbook to upload to</option>
+            <option value="0">Select a book</option>
             {
               scrapbooks.map(scrapbookType => <option value={scrapbookType.id}>{scrapbookType.name}</option>)
             }
@@ -89,15 +82,13 @@ export const ImageForm = ({getAllImages}) => {
           }
 
           // passing image through createImage to POST and pushing to upload page with alert
-          createImage(image)
+          updateImage(image)
             .then(() => history.push("/uploadImages"))
             window.alert("Image Uploaded")
          
             
         }}
-        className="createPhotoButton">add to book</button>
+        className="btn btn-primary">Create</button>
     </form>
-   
-    </center>
   )
 }

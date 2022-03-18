@@ -1,0 +1,19 @@
+.myBooks{
+    margin: 160px;
+}
+
+.buttonBooks{
+
+    background-color: white;
+    border: white 1px solid;
+    color: #8D8741;
+    margin: 5px;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Spectral', serif;
+
+
+}

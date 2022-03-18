@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { createTag, fetchTags } from "./TagManager"
+import "./tagForm.css"
 
 
 export const TagForm = ({getAllTags}) => {
@@ -22,13 +23,15 @@ export const TagForm = ({getAllTags}) => {
 
 	return (
 		<center>
+		
 
 			<form className="tagForm">
-				<h2 className="tagForm__title">Create New Tag</h2>
+				<h2 className="tagForm__title"></h2>
 				<fieldset>
 					<div className="form-group">
-						<label htmlFor="label">Tag Label:</label>
+						<label htmlFor="taglabel"></label>
 						<input type="text" name="label" required autoFocus className="form-control"
+						placeholder="create a new tag here"
 							value={currentTags.label}
 							onChange={changeTag}
 						/>
@@ -48,7 +51,7 @@ export const TagForm = ({getAllTags}) => {
 							.then(() => history.push("/CreateScrapbook"))
 							.then(getAllTags)
 					}}
-					className="button is-link is-dark">Create</button>
+					className="button is-link is-dark">create tags</button>
 			</form>
 		</center>
 	)

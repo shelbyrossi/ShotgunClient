@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom"
-
-
 import { createScrapbook, getScrapbooks } from "./ScrapbookManager"
 import { fetchTags, deleteTags } from "../tags/TagManager"
 import { TagForm} from "../tags/TagForm"
+import "./createBook.css"
+import "../tags/tagForm.css"
+
 
 
 
@@ -63,13 +63,32 @@ export const ScrapbookForm = () => {
 
 
     return (
+
+        <body class="container welcome">
+        <center>
         <form className="CreateNewScrapbook">
-            <h2 className="CreateNewScrapbook__title">Add New Scrapbook</h2>
+            <h2 className="CreateNewScrapbook__title"></h2>
+            
+                
+            <fieldset> 
+                <div className="date">
+                    <label htmlFor="content"> </label>
+                    <input
+                        required autoFocus
+                        type="date"
+                        name="date"
+                        className="form-control"
+                        placeholder="Please use format 0000-00-00"
+                        value={scrapbook.date}
+                        onChange={changeScrapbookState}
+                    />
+                </div>
+            </fieldset>
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Name: </label>
-                    <input
+                    <label htmlFor="title"> </label>
+                     <textarea rows="5" cols="50"
                         required autoFocus
                         type="text"
                         name="name"
@@ -82,13 +101,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="content">Description: </label>
-                    <input
+                    <label htmlFor="content"></label>
+                    <textarea rows="12" cols="50"
                         required autoFocus
                         type="text"
                         name="description"
                         className="form-control"
-                        placeholder="describe this scrapbook.."
+                        placeholder="describe what this scrapbook is about.."
                         value={scrapbook.description}
                         onChange={changeScrapbookState}
                     />
@@ -96,8 +115,8 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="state">State: </label>
-                    <input
+                    <label htmlFor="state"> </label>
+                    <textarea rows="5" cols="50"
                         required autoFocus
                         type="text"
                         name="state"
@@ -110,40 +129,27 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="content">Destination State:</label>
-                    <input
+                    <label htmlFor="content"></label>
+                    <textarea rows="6" cols="50"
                         required autoFocus
                         type="text"
                         name="destination"
                         className="form-control"
-                        placeholder="where is your final destination?"
+                        placeholder="where is your final destination?.."
                         value={scrapbook.destination}
-                        onChange={changeScrapbookState}
-                    />
-                </div>
-            </fieldset> <fieldset>
-                <div className="form-group">
-                    <label htmlFor="content">Date Posting: </label>
-                    <input
-                        required autoFocus
-                        type="date"
-                        name="date"
-                        className="form-control"
-                        placeholder="Please use format 0000-00-00"
-                        value={scrapbook.date}
                         onChange={changeScrapbookState}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="favorite_foodstop">Favorite Food Stop: </label>
-                    <input
+                    <label htmlFor="favorite_foodstop"> </label>
+                    <textarea rows="12" cols="50"
                         required autoFocus
                         type="text"
                         name="favorite_foodstop"
                         className="form-control"
-                        placeholder="what was your favorite place to eat?"
+                        placeholder="what was your favorite place to eat?.."
                         value={scrapbook.favorite_foodstop}
                         onChange={changeScrapbookState}
                     />
@@ -151,13 +157,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="soundtrack">Soundtrack</label>
-                    <input
+                    <label htmlFor="soundtrack"></label>
+                    <textarea rows="9" cols="50"
                         required autoFocus
                         type="text"
                         name="soundtrack"
                         className="form-control"
-                        placeholder="what have you been listening to?"
+                        placeholder="what have you been listening to on this drive?.."
                         value={scrapbook.soundtrack}
                         onChange={changeScrapbookState}
                     />
@@ -165,13 +171,13 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="favorite_experience">Favorite Experience:</label>
-                    <input
+                    <label htmlFor="favorite_experience"></label>
+                    <textarea rows="12" cols="50"
                         required autoFocus
                         type="text"
                         name="favorite_experience"
                         className="form-control"
-                        placeholder="what was the best so far?"
+                        placeholder="what was the best so far?.."
                         value={scrapbook.favorite_experience}
                         onChange={changeScrapbookState}
                     />
@@ -179,33 +185,37 @@ export const ScrapbookForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="other_info">Anything Else?:</label>
-                    <input
+                    <label htmlFor="other_info"></label>
+                    <textarea rows="12" cols="50"
                         required autoFocus
                         type="text"
                         name="other_info"
+                        size="20"
                         className="form-control"
-                        placeholder="anything else you'd like to add?"
+                        placeholder="anything else you'd like to add?.."
                         value={scrapbook.other_info}
                         onChange={changeScrapbookState}
                     />
                 </div>
+                
             </fieldset>
+           
 
 
 
 
+                <TagForm getAllTags={getAllTags} />
 
-            <div className="field my-5">
-                <label className="label"> Tag Your State </label>
+            <div className="tagChecks">
+                <label className="label"> TAG YOUR STATE </label>
                 {
                     tags.map(
                         (tag) => {
-                            return <div className="control my-2">
-                                <label className="checkbox has-text-weight-medium">
+                            return <div className="tagcheckbox">
+                                <label className="checkbox">
                                     <input
                                         type="checkbox"
-                                        className="mr-2"
+                                        className="tagBox"
                                         name="tag"
                                         value={tag.id}
                                         key={`tag--${tag.id}`}
@@ -216,13 +226,10 @@ export const ScrapbookForm = () => {
                                                 : copy.tags.add(parseInt(evt.target.value))
                                             setScrapbook(copy)
                                         }} />
-                                    {tag.label} 
+                                {tag.label} 
+                                  
                         
 
-                        <button className="button is-link is-dark" onClick={() => {
-                                    deleteTags(tag.id).then(getAllTags);
-                                }}>Delete</button>
-                               
 
 
 
@@ -231,12 +238,17 @@ export const ScrapbookForm = () => {
                     
 
                                 </label>
+                        <button className="buttonCreateBook" onClick={() => {
+                                    deleteTags(tag.id).then(getAllTags);
+                                }}>x</button>
+                               
                             </div>
                         }
 
                     )
                 }
             </div>
+            
 
 
 
@@ -262,9 +274,10 @@ export const ScrapbookForm = () => {
                         .then(() => history.push("/MyBooks"))
                         .then(getScrapbooks)
                 }}
-                className="btn btn-primary">Create</button>
-            <TagForm getAllTags={getAllTags} />
+                className="buttonCreate">create your scrapbook</button>
         </form>
+        </center>
+        </body>
 
 
     )

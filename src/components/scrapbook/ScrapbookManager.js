@@ -120,5 +120,15 @@ export const getScrapbookByCurrentUser = (userId) => {
 	}).then((res) => res.json())	
   }  
 
+ 
+   
+export const getCurrentUser = () => {
+    return fetch(`http://localhost:8000/users/currentuser`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+    })
+        .then(response => response.json())
+} 
 
 
