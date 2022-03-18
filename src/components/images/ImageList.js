@@ -3,16 +3,16 @@ import { getImages } from "../images/ImageManager"
 import { getScrapbookById } from "../scrapbook/ScrapbookManager"
 import { useParams } from "react-router-dom"
 import "./images.css"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 export const ImageList = () => {
 
     const [images, setImages] = useState([])
-    const { scrapbookId } = useParams()
-    const [scrapbooks, setScrapbooks] = useState([])
+    const {scrapbookId } = useParams()
+    const [scrapbook, setScrapbooks] = useState([])
+    const [scrapbooks, showBooks] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [foundImage, setFoundImage] = useState([])
-    const history = useHistory()
+
 
 
     // getting all images and setting state
@@ -38,7 +38,6 @@ export const ImageList = () => {
         },
         [scrapbookId] // Above function runs when the value of scrapbookId changes
     )
-
 
 
     if (isLoading) return <>Loading data </>

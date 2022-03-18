@@ -1,59 +1,71 @@
-import  { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getScrapbookByCurrentUser} from "./ScrapbookManager"
-import {useParams} from "react-router-dom"
-import {getUserById} from "./ScrapbookManager"
+import { getScrapbookByCurrentUser } from "./ScrapbookManager"
+import { deleteScrapbook } from "./ScrapbookManager"
+import { useHistory } from 'react-router-dom'
 
-
+import "./myScrapbook.css"
 
 export const MyScrapbook = () => {
 
 
-	const [currentUser, setCurrentUser] = useState({})
-	const [scrapbook, setBook] = useState([])
+    const [currentUser, setCurrentUser] = useState({})
+    const [scrapbook, setBook] = useState([])
+    const history = useHistory()
 
 
 
-	useEffect(() => {
-		// Query string parameter
+
+    const getAllScrapbooks = () => getScrapbookByCurrentUser(parseInt(localStorage["userId"])).then((scrapbook =>setBook(scrapbook)))
+
         
-		getScrapbookByCurrentUser(parseInt(localStorage["userId"])).then((scrapbook) => {
-          
-			setBook(scrapbook)
-        })
-	}, [currentUser])
-	
 
-  
-     
+    useEffect(() => {
+        getAllScrapbooks()
+    }, [])
+    
 
 
- return (
+
+    return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
+        
+                <div className="Books"></div>
+                {
+                    scrapbook.map(
+                        (book) => {
 
-            <div className="Tags"></div>
-            {
-                scrapbook.map(
-                    (book) => {
+                            return <center>
 
-                        return <center>
+                                <div className="myBooks"><div key={`book.id-${book.id}`}>
 
-                            <div className="card equal-height has-text-centered"><div key={`book.id-${book.id}`}>
-                              
-                               <Link to={`/scrapbook/${book.id}`}> {book.name}</Link> 
-                               
-                            </div>
-                            </div>
-                        </center>
+                                    <Link to={`/scrapbook/${book.id}`}> {book.name}</Link>
+
+                                    <div> <Link className="buttonBooks" to={`/scrapbook/${book.id}/update`}>
+                                        Edit Scrapbook</Link></div>
+
+                                    <div>
+                                        <button className="buttonBooks" onClick={() => {
+
+                                            deleteScrapbook(book.id).then(getAllScrapbooks);
+                                        }}>Delete</button>
+
+                                    
+                                    </div>
+
+                                </div>
+                                </div>
+                            </center>
 
 
 
-                    }
-                )
+                        }
+                    )
 
 
-            }
+                }
+        
 
 
         </>

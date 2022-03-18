@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
+
+.checkbox{
+
+    
+    padding: -3px;
+    margin: -3px;
+  
+
+
+
+}
+
+.button {
+    background-color: white;
+    border: #8D8741 1px solid;
+    color: #8D8741;
+    margin: 10px;
+    padding: 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Spectral', serif;
+
+  }
+
+  .CreateNewScrapbook__title{
+      color: #d6c583;
+      font-family: 'Spectral', serif;
+      font-size: 18px;
+      margin: 6px;
+      padding: 40px;
+  }
+
+  .form-control {
+    font-family: 'Lora', serif;
+    
+  }
+
+  .form-group {
+      padding: -30px;
+      width: 400px;
+    
+  }
+
+  .label {
+    padding: 5px;
+    margin: 5px;
+    color: #8D8741;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+  }
+  
+  .bookingTitle {
+    color: #d6c583;
+    font-family: 'Spectral', serif;
+    font-size: 70px;
+    margin: 6px;
+    padding: 40px;
+
+  }
+
+
+  .tagChecks {
+
+    padding: 3px;
+
+
+}
+
+
+
+
+a:link {
+  color: #8D8741;
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration: none;
+  list-style-type: none;
+
+}
+
+a:visited {
+  color: #8D8741;
+  background-color: transparent;
+  text-decoration: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+a:hover {
+  color: #8D8741;
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+a:active {
+  color: #8D8741;
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+.buttonCreateBook {
+
+    background-color: white;
+    border: white 1px solid;
+    color: #8D8741;
+    margin:3px;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Spectral', serif;
+
+
+}
+
+.buttonCreate {
+
+
+        background-color: white;
+        border: #8D8741 1px solid;
+        color: #8D8741;
+        margin: 20px;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-family: 'Spectral', serif;
+    
+    
+    }
+
+    
+    fieldset {
+        border: 0px solid gray;
+        
+    }
+
+
+.tagForm{
+    padding: 20px;
+}
+
+input[type="text"] {
+    width: 200px;
+}
+
+.date{
+    margin:12px;
+}
+
+div.tagChecks{
+    background-color: #ffff;
+    width: 600px;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+    margin: 12px;
+}
+
+
+body.welcome {
+    background-color: white; /*Default bg, similar to the background's base color*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647569829/photo-output_8_r0k3ae.jpg");
+    background-position: center right; /*Positioning*/
+   
+    background-size: 850px 1200px;
+
+    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+ }
+
+

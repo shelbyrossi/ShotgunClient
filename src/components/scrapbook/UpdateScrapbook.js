@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
-
-import { getScrapbookById, getScrapbooks, updateScrapbook } from "./ScrapbookManager"
+import { getScrapbookById,  updateScrapbook} from "./ScrapbookManager"
 import { fetchTags, deleteTags } from "../tags/TagManager"
 
 export const UpdateScrapbook= () => {
@@ -59,6 +58,9 @@ export const UpdateScrapbook= () => {
     } //changing state of currentScrapbooks based on changes to dom 
 
     return (
+
+
+
         <form className="CreateNewScrapbook">
             <h2 className="CreateNewScrapbook__title">Edit Scrapbook</h2>
 
@@ -162,6 +164,7 @@ export const UpdateScrapbook= () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="favorite_experience">Favorite Experience:</label>
+
                     <input
                         required autoFocus
                         type="text"
@@ -203,5 +206,12 @@ export const UpdateScrapbook= () => {
                 }}
                 className="btn btn-primary">Update</button>
         </form>
+
+
+
     )
+
+    
+
+
 }

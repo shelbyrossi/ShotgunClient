@@ -5,36 +5,28 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
-// Setting State for token and setting 
-export const Shotgun = () => {
-	const [token, setTokenState] = useState(localStorage.getItem("token"))
+export const Shotgun = () => (
+    <>
+        <Route render={() => {
+            if (localStorage.getItem("token")) {
+                return <>
+                    <Route>
+                        <NavBar />
+                        <ApplicationViews />
+                    </Route>
+                </>
+            } else {
+                return <Redirect to="/login" />
+            }
+        }} />
 
-	const setToken = (newToken) => {
-		localStorage.setItem('token', newToken)
-		setTokenState(newToken)
-	}
+        <Route path="/login">
+            <Login />
+        </Route>
 
-	return (
-		<>
-			{token ? 
-				<Route>
-					<NavBar token={token} setToken={setToken} />
-					<ApplicationViews />
-				</Route>
-			 : 
-				<Redirect to='/login' />
-			}
+        <Route path="/register">
+            <Register />
+        </Route>
 
-			<Route exact path='/login'>
-				<NavBar token={token} setToken={setToken} />
-				<Login token={token} setToken={setToken} />
-			</Route>
-
-			<Route path='/register' exact>
-				<NavBar token={token} setToken={setToken} />
-				<Register token={token} setToken={setToken} />
-			</Route>
-		
-		</>
-	)
-}
+    </>
+)

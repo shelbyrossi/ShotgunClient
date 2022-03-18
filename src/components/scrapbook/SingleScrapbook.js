@@ -43,17 +43,7 @@ export const ShowScrapbookDetails = () => {
                     <div>{scrapbookDetails?.other_info} </div>
                     <div>{scrapbookDetails?.tags?.label} </div>
                    
-                    <div> <Link className="button is-link is-dark" to={`/scrapbook/${scrapbookDetails.id}/update`}>
-                        Edit Scrapbook</Link></div>
-
-                    <div>
-                        <button className="button" onClick={() => {
-
-                            deleteScrapbook(scrapbookDetails.id)
-                                .then(() => history.push("/MyBooks"))
-                               
-                        }}>Delete</button>
-                    </div>
+                  
 
                 </div>
 

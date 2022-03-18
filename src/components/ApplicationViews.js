@@ -8,7 +8,7 @@ import {UserDetails} from "./users/userDetails"
 import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
 import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
 import {FeedScrapbooks} from "./feed/AllScrapbooks"
-import {ImageFound} from "./images/FeedImages"
+import {MainPage} from "./home/Home"
 
 
 
@@ -37,18 +37,20 @@ export const ApplicationViews = () => {
                 <ImageList/>
             </Route>
             <Route exact path="/scrapbook/:scrapbookId(\d+)/update">
-                < UpdateScrapbook/>
-              
-            </Route>
+                < UpdateScrapbook/>            
+            </Route>  
             <Route exact path="/users/:usersId(\d+)">
                 < UserDetails/>
             </Route>
             <Route exact path="/scrapbookFeed">
                 < FeedScrapbooks/>
             </Route>
-            <Route exact path="/ImageFound">
-                < ImageFound/>
+            <Route exact path="/">
+                < MainPage/>
             </Route>
+           
+           
+
            
           
           

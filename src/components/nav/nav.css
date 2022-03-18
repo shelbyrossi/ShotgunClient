@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap://fonts.googleapis.com/css2?family=Assistant:wght@800&family=Montserrat:wght@900&display=swap');
+
+.navbar{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+     font-family: 'Righteous', cursive;
+    padding: -12px;
+    text-decoration: none;
+    list-style-type: none;
+   
+
+}
+
+.navbar_item {
+    flex-basis: 9%;
+    list-style-type: none;
+    font-family: 'Righteous', cursive;
+    color: #000000;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.navbar_item{
+    color: #8D8741;
+    font-size: 18px;
+    text-decoration: none;
+    list-style-type: none;
+
+}
+
+
+.nav-linkButton{
+
+    background-color: white;
+    border: white 1px solid;
+    color: #8D8741;
+    margin: 1px;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+   font-family: 'Righteous', cursive;
+
+
+}
+
