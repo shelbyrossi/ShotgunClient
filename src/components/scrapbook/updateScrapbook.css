@@ -1,0 +1,53 @@
+.papaPhoto {
+    margin: 120px 5px -35px 5px;
+    border: #ffffff 1px solid;
+    
+}
+
+
+.updateScrapbook {
+
+
+    background-color: white;
+    border: #8D8741 1px solid;
+    color: #8D8741;
+    margin: 25px 3px 30px 3px;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Spectral', serif;
+     
+
+}
+
+
+.updateForm {
+    margin: 30px;
+}
+
+.form-group {
+    font-size: 16px;
+    font-family: 'Spectral', serif;
+}
+
+.form-control {
+    color: #8D8741;
+}
+
+body.update {
+    margin: 70px;
+    min-height: 130vh;
+    background-color: white; /*Default bg, similar to the background's base color*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647654455/photo-output_13_pfskty.jpg");
+    background-position: right top; /*Positioning*/
+    border-radius: 8px;
+
+    background-size:500px 900px;
+
+    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+ }
+
+
+

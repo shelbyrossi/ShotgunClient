@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import { getScrapbookById,  updateScrapbook} from "./ScrapbookManager"
 import { fetchTags, deleteTags } from "../tags/TagManager"
+import "./updateScrapbook.css"
 
 export const UpdateScrapbook= () => {
     const history = useHistory()
@@ -41,7 +42,7 @@ export const UpdateScrapbook= () => {
             favorite_foodstop: data.favorite_foodstop,
             soundtrack: data.soundtrack,
             favorite_experience: data.favorite_experience,
-            other_info: "",
+            other_info: data.other_info,
             date: data.date,
             tags: Array.from(data.tags)
 
@@ -59,14 +60,32 @@ export const UpdateScrapbook= () => {
 
     return (
 
+<center>
+
+<body class="update">
 
 
-        <form className="CreateNewScrapbook">
-            <h2 className="CreateNewScrapbook__title">Edit Scrapbook</h2>
 
+        <form className="updateForm">
+            <h2 className="CreateNewScrapbook__title"></h2>
+
+             <fieldset>
+                <div className="form-group">
+                    <label htmlFor="content"> </label>
+                    <input
+                        required autoFocus
+                        type="date"
+                        name="date"
+                        className="form-control"
+                        placeholder="Please use format 0000-00-00"
+                        value={scrapbook.date}
+                        onChange={changeScrapbookState}
+                    />
+                </div>
+            </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Name: </label>
+                    <label htmlFor="title">Name:   </label>
                     <input
                         required autoFocus
                         type="text"
@@ -108,7 +127,7 @@ export const UpdateScrapbook= () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="content">Destination State:</label>
+                    <label htmlFor="destination">Destination State: </label>
                     <input
                         required autoFocus
                         type="text"
@@ -119,20 +138,7 @@ export const UpdateScrapbook= () => {
                         onChange={changeScrapbookState}
                     />
                 </div>
-            </fieldset> <fieldset>
-                <div className="form-group">
-                    <label htmlFor="content">Date Posting: </label>
-                    <input
-                        required autoFocus
-                        type="date"
-                        name="date"
-                        className="form-control"
-                        placeholder="Please use format 0000-00-00"
-                        value={scrapbook.date}
-                        onChange={changeScrapbookState}
-                    />
-                </div>
-            </fieldset>
+                </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="favorite_foodstop">Favorite Food Stop: </label>
@@ -149,7 +155,7 @@ export const UpdateScrapbook= () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="soundtrack">Soundtrack</label>
+                    <label htmlFor="soundtrack">Soundtrack: </label>
                     <input
                         required autoFocus
                         type="text"
@@ -163,7 +169,7 @@ export const UpdateScrapbook= () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="favorite_experience">Favorite Experience:</label>
+                    <label htmlFor="favorite_experience">Favorite Experience: </label>
 
                     <input
                         required autoFocus
@@ -178,7 +184,7 @@ export const UpdateScrapbook= () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="other_info">Anything Else?:</label>
+                    <label htmlFor="other_info">Anything Else: </label>
                     <input
                         required autoFocus
                         type="text"
@@ -198,14 +204,18 @@ export const UpdateScrapbook= () => {
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
-
-
+                    
+                    
                     updateScrapbook(scrapbookId, scrapbook)
-                        .then(() => history.push("/MyBooks"))
-                       
+                    .then(() => history.push("/MyBooks"))
+                    
                 }}
-                className="btn btn-primary">Update</button>
+                className="updateScrapbook">update scrapbook</button>
         </form>
+
+              
+                </body>
+                </center>
 
 
 

@@ -30,6 +30,8 @@ export const MyScrapbook = () => {
     return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
+
+        <body class="mybooks">
         
                 <div className="Books"></div>
                 {
@@ -40,31 +42,33 @@ export const MyScrapbook = () => {
 
                                 <div className="myBooks"><div key={`book.id-${book.id}`}>
 
-                                    <Link to={`/scrapbook/${book.id}`}> {book.name}</Link>
+                                    <Link className="bookTitle" to={`/scrapbook/${book.id}`}> {book.name}  /  {book.date} </Link>
 
                                     <div> <Link className="buttonBooks" to={`/scrapbook/${book.id}/update`}>
-                                        Edit Scrapbook</Link></div>
+                                       edit scrapbook.</Link>
 
-                                    <div>
+                                  
                                         <button className="buttonBooks" onClick={() => {
 
                                             deleteScrapbook(book.id).then(getAllScrapbooks);
-                                        }}>Delete</button>
-
+                                        }}>delete scrapbook.</button>
+</div>
                                     
-                                    </div>
+                                
 
                                 </div>
                                 </div>
+                                
                             </center>
-
-
-
+                            
+                            
+                            
                         }
-                    )
-
-
-                }
+                        )
+                        
+                        
+                    }
+                    </body>
         
 
 

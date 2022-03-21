@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
+
+.borderdeats{
+    border-radius: 25px;
+  border: 2px solid #f6e8ad;
+  padding: 20px;
+  width: 900px;
+  height: auto;
+
+}
+.details{
+    color: #d6c583;
+    font-family: 'Spectral', serif;
+    font-size: 18px;
+    margin: 40px;
+    padding: 40px;
+}
+
+
+.title {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'Righteous', cursive;
+
+
+}
+
+.description {
+    margin: 23px;
+    color: #8D8741;
+    font-style: italic;
+}
+
+.state {
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+
+}
+.traveling {
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+}
+.food {
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+}
+.soundtrack{
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.experience {
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+}
+.other {
+    margin: 12px;
+    color: #8D8741;
+    font-size: 14px;
+    font-style: italic;
+}
