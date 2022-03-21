@@ -9,6 +9,8 @@ import {ShowScrapbookDetails} from "./scrapbook/SingleScrapbook"
 import {UpdateScrapbook} from "./scrapbook/UpdateScrapbook"
 import {FeedScrapbooks} from "./feed/AllScrapbooks"
 import {MainPage} from "./home/Home"
+import {ShowScrapbookFeedDetails} from "./feed/ScrapbookDetails"
+import {FeedImageList} from "./feed/AllScrapbookImages"
 
 
 
@@ -31,6 +33,14 @@ export const ApplicationViews = () => {
             <Route exact path='/scrapbook/:scrapbookId(\d+)'>
                 {/* child */}
                 <ShowScrapbookDetails/>
+            </Route>
+            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
+                {/* child */}
+                <ShowScrapbookFeedDetails/>
+            </Route>
+            <Route exact path='/scrapbooktags/:scrapbooktagsId(\d+)'>
+                {/* child */}
+                <FeedImageList/>
             </Route>
             <Route exact path='/scrapbook/:scrapbookId(\d+)'>
                 {/* child */}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getScrapbookTags } from "./FeedManager"
+import { getScrapbooks } from "../scrapbook/ScrapbookManager"
 import { fetchTags } from "../tags/TagManager"
 import { getImages } from "../images/ImageManager"
-import { deleteScrapbookTag } from "../scrapbook/ScrapbookManager"
+import { deleteScrapbook } from "../scrapbook/ScrapbookManager"
 import { useHistory } from "react-router-dom"
 import { getCurrentUser } from "../scrapbook/ScrapbookManager"
 import { getScrapbookByTag } from "../tags/TagManager"
@@ -20,7 +20,6 @@ export const FeedScrapbooks = () => {
 
     const [scrapbooks, showBooks] = useState([])
     const [tag, setTag] = useState([])
-    const [showImage, setImage] = useState([])
     const [currentUser, setCurrentUser] = useState([])
     const history = useHistory()
 
@@ -30,25 +29,11 @@ export const FeedScrapbooks = () => {
 
   
 
-    const getAllTags = () => getScrapbookTags().then(data => showBooks(data))
-
-
+    const getAllBooks = () => getScrapbooks().then(data => showBooks(data))
 
 
     useEffect(() => {
-        getAllTags()
-    }, [])
-
-    useEffect(() => {
-        getScrapbookTags()
-    }, [])
-
-
-    //    getting all the images and setting images 
-    useEffect(() => {
-        getImages().then((data) => setImage(data))
-
-
+        getAllBooks()
     }, [])
 
 
@@ -56,15 +41,19 @@ export const FeedScrapbooks = () => {
         getCurrentUser().then((data) => setCurrentUser(data))
     }, [])
 
-
     useEffect(() => {
+
         fetchTags()
-            .then(setTag)
+        .then(setTag)
+
     }, [])
+
+
+    
 
     const bookFilter = (event) => {
         if (event.target.value === "0") {
-            getScrapbookTags()
+            getAllBooks()
                 .then((data) => {
                     showBooks(data)
                 })
@@ -81,21 +70,19 @@ export const FeedScrapbooks = () => {
 
 
 
-
+  
 
 
     return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
-            <body class = "container bodyFeed">
+            <body className = "container bodyFeed">
         <center>
 
 
 
             <div className="tagFilter">
-                <select id="tag" onChange={(event) => {
-                    bookFilter(event)
-                }}
+                <select id="tag" onChange={bookFilter}
                     defaultValue=""
                     name="tag"
                     className="filterDropdown"
@@ -130,11 +117,15 @@ export const FeedScrapbooks = () => {
 
                                
 
-                                <Link className="name" to={`/scrapbook/${book.id}`}> {book.scrapbook.name}</Link>
-                                <div className="description">"{book.scrapbook.description}"</div>
-                                <div><Link className="userLink" to={`/users/${book?.scrapbook?.user?.id}`}> {book?.scrapbook?.user?.user?.username}</Link></div>
-                                <div className="tagLabel"> tag: {book.tag.label}</div>
-
+                                <Link className="name" to={`/scrapbook/${book.id}`}> {book?.name}</Link>
+                                <div className="description">"{book?.description}"</div>
+                                
+                                <div><Link className="userLink" to={`/users/${book?.user?.user?.id}`}> {book?.user?.user?.username}</Link>
+                                tag: {book?.tags?.label}
+                                
+                                </div>
+                          
+                               
 
 
 
@@ -142,7 +133,7 @@ export const FeedScrapbooks = () => {
 
 
                                     <button className="buttonauth" onClick={() => {
-                                        deleteScrapbookTag(book.id).then(getAllTags);
+                                        deleteScrapbook(book.id).then(getAllBooks);
                                     }}>authorized user delete.</button>
 
                                     : <div></div>}
