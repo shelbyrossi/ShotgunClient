@@ -45,10 +45,12 @@ export const ImageForm = ({getAllImages}) => {
 
   return (
 
+    <body class= "container create">
+
     <center>
 
 
-    <div><img className="papaPhoto" src="https://res.cloudinary.com/dyjahmaif/image/upload/v1647609992/photo-output_9_kz6z2m.jpg"/></div>
+   
       <h2 className="imageForm__title">PHOTOS</h2>
     <form className="ImageForm">
 
@@ -99,5 +101,6 @@ export const ImageForm = ({getAllImages}) => {
     </form>
    
     </center>
+</body>
   )
 }

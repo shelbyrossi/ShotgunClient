@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { getImages } from "../images/ImageManager"
+import { getImages, deleteImage } from "../images/ImageManager"
 import { getScrapbookById } from "../scrapbook/ScrapbookManager"
 import { useParams } from "react-router-dom"
+
 import "./images.css"
+
 
 export const ImageList = () => {
 
     const [images, setImages] = useState([])
-    const {scrapbookId } = useParams()
+    const { scrapbookId } = useParams()
     const [scrapbook, setScrapbooks] = useState([])
     const [scrapbooks, showBooks] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -40,6 +42,12 @@ export const ImageList = () => {
     )
 
 
+
+
+
+
+
+
     if (isLoading) return <>Loading data </>
 
     // filtering images for scrapbook id on images that matches scrapbookId
@@ -49,8 +57,7 @@ export const ImageList = () => {
         //  <> Fragment - putting all return elements into one JXS element 
         <>
 
-
-
+            <center>
             <div className="ScrapbookImages"></div>
             {
                 foundImage.map(
@@ -59,7 +66,9 @@ export const ImageList = () => {
 
                         return foundImage ? <div><img className="scrapbookImages" src={imageList?.image_url} alt="" />
 
-                
+
+
+                       
 
 
                         </div>
@@ -74,7 +83,7 @@ export const ImageList = () => {
 
                 )
             }
-
+    </center>
         </>
 
     )

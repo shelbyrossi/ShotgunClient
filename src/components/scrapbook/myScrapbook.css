@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
 .myBooks{
     margin: 160px;
 }
@@ -7,7 +12,7 @@
     background-color: white;
     border: white 1px solid;
     color: #8D8741;
-    margin: 5px;
+    margin: 1px;
     padding: 6px;
     text-align: center;
     text-decoration: none;
@@ -16,4 +21,31 @@
     font-family: 'Spectral', serif;
 
 
+
 }
+
+.bookTitle {
+
+    font-family: 'Righteous', cursive;
+    color:  #d6c583;
+    font-size: 20px;
+    text-transform: uppercase;
+
+
+}
+
+
+body.mybooks {
+    margin: 70px;
+    min-height: 100vh;
+    background-color: white; /*Default bg, similar to the background's base color*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647653425/photo-output_11_makupn.jpg");
+    background-position: right bottom; /*Positioning*/
+    border-radius: 8px;
+
+    background-size:300px 500px;
+
+    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+ }
+
+

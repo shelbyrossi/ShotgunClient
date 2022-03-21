@@ -7,6 +7,7 @@ import { deleteScrapbookTag } from "../scrapbook/ScrapbookManager"
 import { useHistory } from "react-router-dom"
 import { getCurrentUser } from "../scrapbook/ScrapbookManager"
 import { getScrapbookByTag } from "../tags/TagManager"
+import "./feed.css"
 
 
 
@@ -86,6 +87,9 @@ export const FeedScrapbooks = () => {
     return (
         //  <> Fragment - putting all return elements into one JXS element 
         <>
+            <body class = "container bodyFeed">
+        <center>
+
 
 
             <div className="tagFilter">
@@ -96,7 +100,7 @@ export const FeedScrapbooks = () => {
                     name="tag"
                     className="filterDropdown"
                 >
-                    <option key="tag--0" value={0}>Pick a Tagged State</option>
+                    <option key="tag--0" value={0}>filter by tag</option>
                  
                     {tag.map((tags) => 
                         <option key={tags?.id} value={tags?.id}>
@@ -104,9 +108,9 @@ export const FeedScrapbooks = () => {
                         </option>
                     )}
 
-                    
                 </select>
             </div>
+                    </center>
 
 
 
@@ -121,13 +125,15 @@ export const FeedScrapbooks = () => {
                         // is user signed in staff? - if true, render all books and authorized delete button
 
                         return (
+                                <center>
+                            <div className="feed"><div key={`book.id-${book.id}`}>
 
-                            <div className="card equal-height has-text-centered"><div key={`book.id-${book.id}`}>
+                               
 
-                                <Link to={`/scrapbook/${book.id}`}> {book.scrapbook.name}</Link>
-                                <div>{book.scrapbook.description}</div>
-                                <div><Link to={`/users/${book?.scrapbook?.user?.id}`}> {book?.scrapbook?.user?.user?.username}</Link></div>
-                                <div> tag: {book.tag.label}</div>
+                                <Link className="name" to={`/scrapbook/${book.id}`}> {book.scrapbook.name}</Link>
+                                <div className="description">"{book.scrapbook.description}"</div>
+                                <div><Link className="userLink" to={`/users/${book?.scrapbook?.user?.id}`}> {book?.scrapbook?.user?.user?.username}</Link></div>
+                                <div className="tagLabel"> tag: {book.tag.label}</div>
 
 
 
@@ -135,9 +141,9 @@ export const FeedScrapbooks = () => {
                                 {currentUser.staff === true ?
 
 
-                                    <button className="button" onClick={() => {
+                                    <button className="buttonauth" onClick={() => {
                                         deleteScrapbookTag(book.id).then(getAllTags);
-                                    }}>Authorized User Delete</button>
+                                    }}>authorized user delete.</button>
 
                                     : <div></div>}
 
@@ -147,13 +153,15 @@ export const FeedScrapbooks = () => {
 
 
                             </div>
+                            </center>
                         )
-
+                        
                     }
-                )
-
-
-            }
+                    )
+                    
+                    
+                }
+                </body>
 
 
         </>

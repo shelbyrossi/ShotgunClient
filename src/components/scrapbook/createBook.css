@@ -10,6 +10,8 @@
     padding: -3px;
     margin: -3px;
   
+    
+  
 
 
 
@@ -19,8 +21,8 @@
     background-color: white;
     border: #8D8741 1px solid;
     color: #8D8741;
-    margin: 10px;
-    padding: 9px;
+    margin: -3px;
+    padding: 2px 6px 2px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -38,7 +40,7 @@
   }
 
   .form-control {
-    font-family: 'Lora', serif;
+    font-family: 'Spectral', serif;
     
   }
 
@@ -69,6 +71,7 @@
   .tagChecks {
 
     padding: 3px;
+    
 
 
 }
@@ -86,7 +89,7 @@ a:link {
 }
 
 a:visited {
-  color: #8D8741;
+  
   background-color: transparent;
   text-decoration: none;
   text-decoration: none;
@@ -152,6 +155,7 @@ a:active {
 
 .tagForm{
     padding: 20px;
+  
 }
 
 input[type="text"] {
@@ -175,11 +179,12 @@ div.tagChecks{
 
 
 body.welcome {
+  
     background-color: white; /*Default bg, similar to the background's base color*/
     background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647569829/photo-output_8_r0k3ae.jpg");
     background-position: center right; /*Positioning*/
    
-    background-size: 850px 1200px;
+    background-size:700px 1000px;
 
     background-repeat: no-repeat; /*Prevent showing multiple background images*/
  }

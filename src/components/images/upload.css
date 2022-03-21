@@ -42,15 +42,12 @@
     
     }
 
-.papaPhoto {
-    margin: 120px 5px 6px 5px;
-    border: #8D8741 1px solid;
-    
-}
 
+   
 
 .ImageForm{
     padding: -90px;
+    margin: 25px;
 }
 
 input[type="url"] {
@@ -61,9 +58,24 @@ input[type="url"] {
 
  .imageForm__title {
     font-family: 'Righteous', cursive;
+    margin: 30px;
     
    
 
 
  }
+
+ body.create {
+    margin: 70px;
+    min-height: 100vh;
+    background-color: white; /*Default bg, similar to the background's base color*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647653425/photo-output_12_tag9io.jpg");
+    background-position: right bottom; /*Positioning*/
+    border-radius: 8px;
+
+    background-size:940px 710px;
+
+    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+ }
+
 
