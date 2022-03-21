@@ -54,7 +54,7 @@ export const fetchTags = () => {
 }
 
 export const getScrapbookByTag = (tagId) => {
-	return fetch(`http://localhost:8000/scrapbooktags?tag_id=${tagId}`, {
+	return fetch(`http://localhost:8000/scrapbook?tag_id=${tagId}`, {
 		headers: {
 			Authorization: `Token ${localStorage.getItem('token')}`,
 		}	

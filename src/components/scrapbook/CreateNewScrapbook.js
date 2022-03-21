@@ -265,7 +265,7 @@ export const ScrapbookForm = () => {
                         favorite_foodstop: scrapbook.favorite_foodstop,
                         soundtrack: scrapbook.soundtrack,
                         favorite_experience: scrapbook.favorite_experience,
-                        other_info: "",
+                        other_info: scrapbook.other_info,
                         date: scrapbook.date,
                         tags: Array.from(scrapbook.tags)
                     }

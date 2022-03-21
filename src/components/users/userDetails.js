@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { getUserById } from "./UserManager"
 import { useParams } from "react-router-dom"
+import "./userdetails.css"
 
 
 
@@ -23,10 +24,10 @@ export const UserDetails = () => {
             <div className="userDetails"></div>
             {
 
+<center>
 
 
-
-                <div className="card equal-height has-text-centered"><div key={`details.id-${userDetails.id}`}>
+                <div className="userDetails"><div key={`details.id-${userDetails.id}`}>
 
                     <div>{userDetails?.user?.username} </div>
                     <div>{userDetails?.user?.first_name} {""}
@@ -36,6 +37,7 @@ export const UserDetails = () => {
 
 
                 </div>
+                </center>
 
 
             }
