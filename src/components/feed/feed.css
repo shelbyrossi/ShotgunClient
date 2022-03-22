@@ -88,3 +88,13 @@
 body.bodyFeed {
     margin-top: 70px;
 }
+
+.feedDetailsTag {
+    color: #8D8741;
+    font-family: 'Spectral', serif;
+    font-size: 12px;
+    margin-bottom: 60px;
+    padding: 4px;
+    text-transform: italic;
+    
+}

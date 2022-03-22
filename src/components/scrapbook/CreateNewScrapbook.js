@@ -284,6 +284,3 @@ export const ScrapbookForm = () => {
 }
 
 
-
-
-
