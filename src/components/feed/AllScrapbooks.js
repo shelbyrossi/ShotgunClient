@@ -27,7 +27,7 @@ export const FeedScrapbooks = () => {
 
     //   getting all scrapbooks and tags / setting 
 
-  
+
 
     const getAllBooks = () => getScrapbooks().then(data => showBooks(data))
 
@@ -44,15 +44,15 @@ export const FeedScrapbooks = () => {
     useEffect(() => {
 
         fetchTags()
-        .then(setTag)
+            .then(setTag)
 
     }, [])
 
 
-    
+
 
     const bookFilter = (event) => {
-        if (event.target.value === "0") {
+        if (event.target.value === 0) {
             getAllBooks()
                 .then((data) => {
                     showBooks(data)
@@ -70,92 +70,93 @@ export const FeedScrapbooks = () => {
 
 
 
-  
+
 
 
     return (
         //  <> Fragment - putting all return elements into one JXS element 
-        <>
-            <body className = "container bodyFeed">
-        <center>
+        <div className="container bodyFeed">
+            <>
+                <center>
 
 
 
-            <div className="tagFilter">
-                <select id="tag" onChange={bookFilter}
-                    defaultValue=""
-                    name="tag"
-                    className="filterDropdown"
-                >
-                    <option key="tag--0" value={0}>filter by tag</option>
-                 
-                    {tag.map((tags) => 
-                        <option key={tags?.id} value={tags?.id}>
-                            {tags?.label}
-                        </option>
-                    )}
+                    <div className="tagFilter">
+                        <select id="tag" onChange={bookFilter}
+                            defaultValue=""
+                            name="tag"
+                            className="filterDropdown"
+                        >
+                            <option key="tag--0" value={0}>filter by tag</option>
 
-                </select>
-            </div>
-                    </center>
+                            {tag.map((tags) =>
+                                <option key={tags?.id} value={tags?.id}>
+                                    {tags?.label}
+                                </option>
+                            )}
 
-
+                        </select>
+                    </div>
+                </center>
 
 
 
 
-            <div className="Tags"></div>
-            {
-                scrapbooks.map(
-                    (book) => {
 
-                        // is user signed in staff? - if true, render all books and authorized delete button
 
-                        return (
+                <div className="Tags"></div>
+                {
+                    scrapbooks.map(
+                        (book) => {
+
+                            // is user signed in staff? - if true, render all books and authorized delete button
+
+                            return (
                                 <center>
-                            <div className="feed"><div key={`book.id-${book.id}`}>
+                                    <div className="feed">
 
-                               
-                                    
-                                <Link className="name" to={`/scrapbook/${book.id}`}> {book?.name}</Link>
-                                <div className="description">"{book?.description}"</div>
-                                
-                                <div><Link className="userLink" to={`/users/${book?.user?.user?.id}`}> {book?.user?.user?.username}</Link>
-                               
-                                <div className="feedDetailsTag">Tags: {book.tags?.map(t => t.label).join(", ")}</div>
-                                </div>
-                          
-                               
+                                        <div key={`booking--${book.id}`} >
 
 
+                                            <Link className="name" to={`/scrapbook/${book.id}`}> {book?.name}</Link>
+                                            <div className="description">"{book?.description}"</div>
 
-                                {currentUser.staff === true ?
+                                            <div><Link className="userLink" to={`/users/${book?.user?.user?.id}`}> {book?.user?.user?.username}</Link>
 
-
-                                    <button className="buttonauth" onClick={() => {
-                                        deleteScrapbook(book.id).then(getAllBooks);
-                                    }}>authorized user delete.</button>
-
-                                    : <div></div>}
+                                                <div className="feedDetailsTag">Tags: {book.tags?.map(t => t.label).join(", ")}</div>
+                                            </div>
 
 
 
-                            </div>
 
 
-                            </div>
-                            </center>
-                        )
-                        
-                    }
+                                            {currentUser.staff === true ?
+
+
+                                                <button className="buttonauth" onClick={() => {
+                                                    deleteScrapbook(book.id).then(getAllBooks);
+                                                }}>authorized user delete.</button>
+
+                                                : <div></div>}
+
+
+
+                                        </div>
+
+
+                                    </div>
+                                </center>
+                            )
+
+                        }
                     )
-                    
-                    
+
+
                 }
-                </body>
 
 
-        </>
+            </>
+        </div>
     )
 }
 

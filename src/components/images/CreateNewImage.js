@@ -45,7 +45,7 @@ export const ImageForm = ({getAllImages}) => {
 
   return (
 
-    <body class= "container create">
+    <div className= "container create">
 
     <center>
 
@@ -101,6 +101,6 @@ export const ImageForm = ({getAllImages}) => {
     </form>
    
     </center>
-</body>
+</div>
   )
 }

@@ -6,7 +6,7 @@ import "./nav.css"
 export const NavBar = () => {
     const history = useHistory()
     return (
-        <li className="navbar">
+        <div className="navbar">
             <li className="navbar__item">
                 <Link className="navbar_item" to="/">WELCOME HOME</Link>
             </li>
@@ -20,7 +20,7 @@ export const NavBar = () => {
                 <Link className="navbar_item" to="/uploadImages">UPLOAD PHOTOS</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar_item" to="scrapbookFeed">HITCHHIKE</Link>
+                <Link className="navbar_item" to="/scrapbookFeed">HITCHHIKE</Link>
             </li>
            
             
@@ -42,6 +42,6 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </li>
+            }        </div>
     )
 }

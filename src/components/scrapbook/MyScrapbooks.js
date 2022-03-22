@@ -31,8 +31,8 @@ export const MyScrapbook = () => {
         //  <> Fragment - putting all return elements into one JXS element 
         <>
 
-        <body class="mybooks">
         
+        <div className="mybooks">
                 <div className="Books"></div>
                 {
                     scrapbook.map(
@@ -68,10 +68,10 @@ export const MyScrapbook = () => {
                         
                         
                     }
-                    </body>
+
+
+                    </div>
         
-
-
         </>
     )
 }

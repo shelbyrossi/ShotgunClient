@@ -25,7 +25,7 @@ export const TagForm = ({getAllTags}) => {
 		<center>
 		
 
-			<form className="tagForm">
+			<div className="tagForm">
 				<h2 className="tagForm__title"></h2>
 				<fieldset>
 					<div className="form-group">
@@ -52,7 +52,7 @@ export const TagForm = ({getAllTags}) => {
 							.then(getAllTags)
 					}}
 					className="button is-link is-dark">create tags</button>
-			</form>
+			</div>
 		</center>
 	)
 }

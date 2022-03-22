@@ -40,14 +40,14 @@ export const Login = ({ setToken }) => {
         <p className="subtitle"></p>
 
         <div className="field">
-          <label className="labelLogin">Username</label>
+          <label className="labelLogin">username</label>
           <div className="control">
             <input className="input" type="text" ref={username} />
           </div>
         </div>
 
         <div className="field">
-          <label className="labelLogin">Password</label>
+          <label className="labelLogin">password</label>
           <div className="control">
             <input className="input" type="password" ref={password} />
           </div>
@@ -55,10 +55,10 @@ export const Login = ({ setToken }) => {
 
         <div className="field is-grouped">
           <div className="control">
-            <button className="buttonSubmit" type="submit" >Submit</button>
+            <button className="buttonSubmit" type="submit" >submit</button>
          
        
-            <Link to="/register" className="button">Cancel</Link>
+            <Link to="/register" className="button">register</Link>
           </div>
         </div>
         {
