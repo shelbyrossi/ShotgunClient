@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import "./images.css"
 
 
-export const ImageList = () => {
+export const ImageList = ({}) => {
 
     const [images, setImages] = useState([])
     const { scrapbookId } = useParams()

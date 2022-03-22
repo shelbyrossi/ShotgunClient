@@ -37,14 +37,14 @@
 }
 
 body.update {
-    margin: 70px;
+    margin: 50px;
     min-height: 130vh;
     background-color: white; /*Default bg, similar to the background's base color*/
-    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647654455/photo-output_13_pfskty.jpg");
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647957022/RNI-Films-IMG-52A549CF-C257-42BD-B7E2-67222EBA7B94_rcugnj.jpg");
     background-position: right top; /*Positioning*/
     border-radius: 8px;
 
-    background-size:500px 900px;
+    background-size:40%;
 
     background-repeat: no-repeat; /*Prevent showing multiple background images*/
  }

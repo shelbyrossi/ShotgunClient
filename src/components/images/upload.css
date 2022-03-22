@@ -67,13 +67,13 @@ input[type="url"] {
 
  body.create {
     margin: 70px;
-    min-height: 100vh;
+    min-height: 90vh;
     background-color: white; /*Default bg, similar to the background's base color*/
-    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647653425/photo-output_12_tag9io.jpg");
-    background-position: right bottom; /*Positioning*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647957022/photo-output_14_aksf5l.jpg");
+    background-position: right top; /*Positioning*/
     border-radius: 8px;
 
-    background-size:940px 710px;
+    background-size:80%;
 
     background-repeat: no-repeat; /*Prevent showing multiple background images*/
  }

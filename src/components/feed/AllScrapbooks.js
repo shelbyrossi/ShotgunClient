@@ -116,13 +116,13 @@ export const FeedScrapbooks = () => {
                             <div className="feed"><div key={`book.id-${book.id}`}>
 
                                
-
+                                    
                                 <Link className="name" to={`/scrapbook/${book.id}`}> {book?.name}</Link>
                                 <div className="description">"{book?.description}"</div>
                                 
                                 <div><Link className="userLink" to={`/users/${book?.user?.user?.id}`}> {book?.user?.user?.username}</Link>
-                                tag: {book?.tags?.label}
-                                
+                               
+                                <div className="feedDetailsTag">Tags: {book.tags?.map(t => t.label).join(", ")}</div>
                                 </div>
                           
                                
