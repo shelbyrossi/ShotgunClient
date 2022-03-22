@@ -65,7 +65,7 @@ input[type="url"] {
 
  }
 
- body.create {
+ div.create {
     margin: 70px;
     min-height: 90vh;
     background-color: white; /*Default bg, similar to the background's base color*/

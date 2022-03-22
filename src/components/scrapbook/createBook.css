@@ -178,13 +178,13 @@ div.tagChecks{
 }
 
 
-body.welcome {
+div.welcome {
   
     background-color: white; /*Default bg, similar to the background's base color*/
-    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647569829/photo-output_8_r0k3ae.jpg");
-    background-position: center right; /*Positioning*/
+    background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647968386/photo-output_16_u8esnd.jpg");
+    background-position: top right; /*Positioning*/
+    background-size:45%;
    
-    background-size:700px 1000px;
 
     background-repeat: no-repeat; /*Prevent showing multiple background images*/
  }

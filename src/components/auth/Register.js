@@ -107,7 +107,7 @@ export const Register = () => {
                 </fieldset>
             </form>
             <section className="link--register">
-                Already registered? <Link to="/login">Login</Link>
+                already registered? <Link to="/login">login</Link>
             </section>
         </main>
     )

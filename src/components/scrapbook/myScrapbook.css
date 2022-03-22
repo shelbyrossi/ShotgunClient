@@ -35,9 +35,9 @@
 }
 
 
-body.mybooks {
+div.mybooks {
     margin: 70px;
-    min-height: 100vh;
+    min-height: 80vh;
     background-color: white; /*Default bg, similar to the background's base color*/
     background-image: url("https://res.cloudinary.com/dyjahmaif/image/upload/v1647957023/RNI-Films-IMG-821A5020-E576-4B0B-862B-C4D0CABFFAC2_hxhkvy.jpg");
     background-position: right bottom; /*Positioning*/

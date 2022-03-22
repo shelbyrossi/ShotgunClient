@@ -64,11 +64,13 @@ export const ScrapbookForm = () => {
 
     return (
 
-        <body class="container welcome">
+
+        <div className="container welcome" >
         <center>
-        <form className="CreateNewScrapbook">
-            <h2 className="CreateNewScrapbook__title"></h2>
+        <form className="CreateNewScrapbook" >
+            <h2 className="CreateNewScrapbook__title" ></h2>
             
+         
                 
             <fieldset> 
                 <div className="date">
@@ -211,8 +213,11 @@ export const ScrapbookForm = () => {
                 {
                     tags.map(
                         (tag) => {
+
+                            
                             return <div className="tagcheckbox">
                                 <label className="checkbox">
+                                    
                                     <input
                                         type="checkbox"
                                         className="tagBox"
@@ -277,8 +282,8 @@ export const ScrapbookForm = () => {
                 className="buttonCreate">create your scrapbook</button>
         </form>
         </center>
-        </body>
 
+        </div>
 
     )
 }
